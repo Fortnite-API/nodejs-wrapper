@@ -39,7 +39,6 @@ module.exports = class FortniteAPI {
     }
 
     var resource = uri + params;
-    console.log("Debug:", resource);
     return this.Request(resource);
   }
 
