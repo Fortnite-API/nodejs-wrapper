@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-wrapper",
+  "name": "fortnite-api-com",
   "version": "1.0.0",
   "description": "A NodeJS wrapper for Fortnite-API.com",
   "main": "index.js",
