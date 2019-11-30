@@ -37,7 +37,7 @@ Fortnite.Shop("en") // "en" -> Optional parameter : Language
   
 ## Wiki
 
-<a href="https://google.com">Read the docs</a>
+<a href="https://github.com/Fortnite-API/nodejs-wrapper/wiki">Read the docs</a>
 
 ## Contribute
 
