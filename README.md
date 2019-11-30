@@ -45,7 +45,7 @@ We are open for any contribution.
 
 ## License
 
-Fortnite-API (MIT) [License](https://github.com/Fortnite-API/js-wrapper/blob/master/LICENSE "MIT License")
+Fortnite-API (MIT) [License](https://github.com/Fortnite-API/nodejs-wrapper/blob/master/LICENSE "MIT License")
 
 API developed by [Fortnite-API.com](https://fortnite-api.com/about).
 </div>
