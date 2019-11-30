@@ -201,6 +201,9 @@ module.exports = class FortniteAPI {
   }
 
   async API() {
-    return endpoints.base;
+    const api = {
+      url: endpoints.base
+    }
+    return api;
   }
 };
