@@ -17,16 +17,14 @@ npm i fortnite-api-com --save
 
 ```javascript
 const FortniteAPI = require("fortnite-api-com");
-
-var config = {
+const config = {
   apikey: "API-Key",
   language: "en"
 };
 
 var Fortnite = new FortniteAPI(config);
 
-
-Fortnite.Shop("en") // "en" -> Optional parameter : Language
+Fortnite.Shop()
 .then(res => {
   console.log(res);
 }).catch(err => {
