@@ -52,6 +52,11 @@ module.exports = class FortniteAPI {
     return response.data;
   }
 
+  async AES() {
+    const response = await this.PreRequest(endpoints.aes);
+    return response.data;
+  }
+
   async CreatorCode(slug = null) {
     if (slug == null || slug == "") {
       return "{ error: \"missing parameter 'Creator Code'\" }";

@@ -1,10 +1,12 @@
 module.exports = {
 
   base: `https://fortnite-api.com`,
+  
+  aes: `https://fortnite-api.com/aes`,
 
   shop: `https://fortnite-api.com/shop/br`,
   
-	creatorcode: `https://fortnite-api.com/creatorcode`,
+  creatorcode: `https://fortnite-api.com/creatorcode`,
   creatorcode_search: `https://fortnite-api.com/creatorcode/search`,
   creatorcode_search_all: `https://fortnite-api.com/creatorcode/search/all`,
 
