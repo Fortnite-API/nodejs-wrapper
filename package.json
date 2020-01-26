@@ -1,51 +1,23 @@
 {
-  "_from": "fortnite-api-com",
-  "_id": "fortnite-api-com@1.0.2",
-  "_inBundle": false,
-  "_integrity": "sha512-Qu0/kVLYCN+KgkNnoLQ6MRHwVXbhWB3i5uCxUvrHLdwENPvbxW1UDeyHkyB05edVusiq4FEe+TvST7Ef9rzfDA==",
-  "_location": "/fortnite-api-com",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "fortnite-api-com",
-    "name": "fortnite-api-com",
-    "escapedName": "fortnite-api-com",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/fortnite-api-com/-/fortnite-api-com-1.0.2.tgz",
-  "_shasum": "02377ec3f3ec2bebf155962074d5dc62a96fc918",
-  "_spec": "fortnite-api-com",
-  "_where": "H:\\-05-\\test-final",
-  "author": {
-    "name": "IXXE"
-  },
-  "bugs": {
-    "url": "https://github.com/Fortnite-API/nodejs-wrapper/issues"
-  },
-  "bundleDependencies": false,
+  "name": "fortnite-api-com",
+  "version": "1.0.4",
+  "description": "A NodeJS wrapper for Fortnite-API.com",
+  "main": "index.js",
   "dependencies": {
     "axios": "^0.19.0"
   },
-  "deprecated": false,
-  "description": "A NodeJS wrapper for Fortnite-API.com",
   "devDependencies": {},
-  "homepage": "https://github.com/Fortnite-API/nodejs-wrapper#readme",
-  "license": "MIT",
-  "main": "index.js",
-  "name": "fortnite-api-com",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Fortnite-API/nodejs-wrapper.git"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "IXXE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fortnite-API/nodejs-wrapper/issues"
   },
-  "version": "1.0.3"
+  "homepage": "https://github.com/Fortnite-API/nodejs-wrapper#readme"
 }

@@ -6,7 +6,7 @@ const config = {
 
 var Fortnite = new FortniteAPI(config);
 
-Fortnite.AES()
+Fortnite.Shop()
 .then(res => {
   console.log(res);
 }).catch(err => {
