@@ -52,6 +52,16 @@ module.exports = class FortniteAPI {
     return response.data;
   }
 
+  async ShopCombined(language = null) {
+    if (language === null) {
+      language = this.language;
+    }
+    const response = await this.PreRequest(endpoints.shop_combined, {
+      language: language
+    });
+    return response.data;
+  }
+
   async AES() {
     const response = await this.PreRequest(endpoints.aes);
     return response.data;

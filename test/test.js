@@ -6,7 +6,7 @@ const config = {
 
 var Fortnite = new FortniteAPI(config);
 
-Fortnite.Shop()
+Fortnite.ShopCombined()
 .then(res => {
   console.log(res);
 }).catch(err => {

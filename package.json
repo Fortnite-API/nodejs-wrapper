@@ -1,6 +1,6 @@
 {
   "name": "fortnite-api-com",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A NodeJS wrapper for Fortnite-API.com",
   "main": "index.js",
   "dependencies": {
