@@ -1,10 +1,10 @@
 {
   "name": "fortnite-api-com",
-  "version": "1.0.5",
+  "version": "2.1.0",
   "description": "A NodeJS wrapper for Fortnite-API.com",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.19.0"
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/Fortnite-API/nodejs-wrapper.git"
   },
-  "author": "IXXE",
+  "author": "MissedSpace",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Fortnite-API/nodejs-wrapper/issues"

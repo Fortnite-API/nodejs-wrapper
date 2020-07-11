@@ -1,224 +1,307 @@
-const axios = require("axios");
-const endpoints = require("./endpoints.js");
+const fetch = require('node-fetch');
+const Endpoints = require("./endpoints.js");
 
 module.exports = class FortniteAPI {
-  constructor(config) {
-    if (!config) {
-      console.log("[FortniteAPI] Please define your configuration .");
-    } else if (!config.apikey) {
-      console.log("[FortniteAPI] Please define your Api-Key .");
-    } else if (!config.language) {
-      console.log("[FortniteAPI] Please define your default language .");
-    }
-
-    this.apikey = config.apikey;
-    this.language = config.language;
-  }
-
-  Request(url) {
-    return axios({ url: url, headers: { "x-api-key": this.apikey } });
-  }
-
-  PreRequest(uri, query = null) {
-    var params = "";
-
-    if (query != null) {
-      for (var prop in query) {
-        if (Array.isArray(query[prop])) {
-          for (var item of query[prop]) {
-            params += prop + "=" + item + "&";
-          }
+    constructor(config) {
+        if (!config) {
+            console.log("[FortniteAPI.js] Please define your configuration.");
+        };
+        if (config.debug == true || config.debug == false) {
+            this.debug = config.debug;
         } else {
-          params += prop + "=" + query[prop] + "&";
+            this.debug = true
+        };
+        if (config.language) {
+            this.language = config.language;
+        } else {
+            console.log("[FortniteAPI.js] Please define your default language. (Default language selected 'English').");
+            this.language = "en";
+        };
+        if (config.apikey) {
+            this.apikey = config.apikey;
+            this.headers = {
+                headers: {
+                    'x-api-key': this.apikey
+                }
+            };
+        } else {
+            console.log("[FortniteAPI.js] Please define your Api-Key (https://dash.fortnite-api.com/account).");
+            this.headers = {};
+        };
+    };
+
+    PreRequest(uri, query = null) {
+        var params = "";
+        if (query != null) {
+            for (var prop in query) {
+                if (Array.isArray(query[prop])) {
+                    for (var item of query[prop]) {
+                        params += prop + "=" + item + "&";
+                    }
+                } else {
+                    params += prop + "=" + query[prop] + "&";
+                }
+            }
+            if (params.length > 0) {
+                params = "?" + params.substr(0, params.length - 1);
+            }
         }
-      }
+        let url = uri + params;
+        return url;
+    };
 
-      if (params.length > 0) {
-        params = "?" + params.substr(0, params.length - 1);
-      }
-    }
+    CheckLanguage(params){
+        let Kik = Endpoints.Language;
+        let Kik_Exist = Kik.indexOf(params) > -1;
+        if (Kik_Exist) {
+            return params;
+        } else if (!Kik_Exist) {
+            if (this.debug) { console.log("[FortniteAPI.js] 'Language' parameter is invalid (Default language selected 'English')."); };
+            return this.language; 
+        } else if (params == "") {
+            if (this.debug) { console.log("[FortniteAPI.js] 'Language' parameter is empty (Default language selected 'English')."); };
+            return this.language; 
+        } else if (!params) { 
+            if (this.debug) { console.log("[FortniteAPI.js] Missing 'Language' parameter (Default language selected 'English')."); };
+            return this.language; 
+        };
+    };
 
-    var resource = uri + params;
-    return this.Request(resource);
-  }
 
-  async Shop(language = null) {
-    if (language === null) {
-      language = this.language;
-    }
-    const response = await this.PreRequest(endpoints.shop, {
-      language: language
-    });
-    return response.data;
-  }
+    async FortniteAPI(language) {
+        return Endpoints.Base;
+    };
 
-  async ShopCombined(language = null) {
-    if (language === null) {
-      language = this.language;
-    }
-    const response = await this.PreRequest(endpoints.shop_combined, {
-      language: language
-    });
-    return response.data;
-  }
+    async Parameters(language) {
+        return Endpoints.Parameters;
+    };
 
-  async AES() {
-    const response = await this.PreRequest(endpoints.aes);
-    return response.data;
-  }
+    async AES() {
+        const res = await this.PreRequest(Endpoints.AES);
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data;
+    };
 
-  async CreatorCode(slug = null) {
-    if (slug == null || slug == "") {
-      return "{ error: \"missing parameter 'Creator Code'\" }";
-    }
-    const response = await this.PreRequest(endpoints.creatorcode, {
-      slug: slug
-    });
-    return response.data;
-  }
+    async Language() {
+        return Endpoints.Language;
+    };
 
-  async CreatorCodeSearch(slug = null) {
-    if (slug == null || slug == "") {
-      return "{ error: \"missing parameter 'Creator Code'\" }";
-    }
-    const response = await this.PreRequest(endpoints.creatorcode_search, {
-      slug: slug
-    });
-    return response.data;
-  }
+    async Banners(language) {
+        language = this.CheckLanguage(language);
+        const res = await this.PreRequest(Endpoints.Banners, { language: language});
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data;
+        
+    };
 
-  async CreatorCodeSearchAll(slug = null) {
-    if (slug == null || slug == "") {
-      return "{ error: \"missing parameter 'Creator Code'\" }";
-    }
-    const response = await this.PreRequest(endpoints.creatorcode_search_all, {
-      slug: slug
-    });
-    return response.data;
-  }
+    async BannersColors() {
+        const res = await this.PreRequest(Endpoints.Banners_Colors);
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data;
+        
+    };
 
-  async Cosmetics(language = null) {
-    if (language === null || language == "") {
-      language = this.language;
-    }
-    const response = await this.PreRequest(endpoints.cosmetics, {
-      language: language
-    });
-    return response.data;
-  }
+    async BRStats(params) {
+        if (params == {}) {
+            if (this.debug) { console.log("[FortniteAPI.js] 'Name' parameter is empty."); };
+            return false;
+        } else if (!params) {
+            if (this.debug) { console.log("[FortniteAPI.js] Missing 'Name' parameter."); };
+            return false;
+        } else {
+            const res = await this.PreRequest(Endpoints.BR_Stats, params);
+            const result = await fetch(res, this.headers);
+            const data = await result.json();
+            return data;
+        };
+    };
 
-  async CosmeticsId(id = null, language = null) {
-    if (language === null || language == "") {
-      language = this.language;
-    }
-    if (id == null || id == "") {
-      return "{ error: \"missing parameter 'id'\" }";
-    }
-    const response = await this.PreRequest(endpoints.cosmetics_id + id, {
-      language: language
-    });
-    return response.data;
-  }
+    async BRStatsID(ID, params) {
+        if (params == {}) {
+            if (this.debug) { console.log("[FortniteAPI.js] 'ID' parameter is empty."); };
+            return false;
+        } else if (!params) {
+            if (this.debug) { console.log("[FortniteAPI.js] Missing 'ID' parameter."); };
+            return false;
+        } else {
+            const res = await this.PreRequest(Endpoints.BR_StatsID + ID, params);
+            const result = await fetch(res, this.headers);
+            const data = await result.json();
+            return data;
+        };
+    };
 
-  async CosmeticsSearch(query) {
-    if (query == null || query == "") {
-      return "{ error: \"missing parameter 'query'\" }";
-    }
-    const response = await this.PreRequest(endpoints.cosmetics_search, query);
-    return response.data;
-  }
+    async BRShop(language) {
+        language = this.CheckLanguage(language);
+        const res = await this.PreRequest(Endpoints.BR_Shop, { language: language});
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data; 
+    };
 
-  async CosmeticsSearchAll(query) {
-    if (query == null || query == "") {
-      return "{ error: \"missing parameter 'query'\" }";
-    }
-    const response = await this.PreRequest(
-      endpoints.cosmetics_search_all,
-      query
-    );
-    return response.data;
-  }
+    async BRShopCombined(language) {
+        language = this.CheckLanguage(language);
+        const res = await this.PreRequest(Endpoints.BR_ShopCombined, { language: language});
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data; 
+    };
 
-  async CosmeticsSearchIds(ids, language = null) {
-    if (ids == null || ids == "") {
-      return "{ error: \"missing parameter 'ids'\" }";
-    }
-    if (language === null || language == "") {
-      language = this.language;
-    }
-    const response = await this.PreRequest(endpoints.cosmetics_search_ids, {
-      id: ids,
-      language: language
-    });
-    return response.data;
-  }
+    async CreatorCode(name) {
+        if (name == {}) {
+            if (this.debug) { console.log("[FortniteAPI.js] 'Name' parameter is empty."); };
+            return false;
+        } else if (!name) {
+            if (this.debug) { console.log("[FortniteAPI.js] Missing 'Name' parameter."); };
+            return false;
+        } else {
+            const res = await this.PreRequest(Endpoints.Creator_Code, { name: name});
+            const result = await fetch(res, this.headers);
+            const data = await result.json();
+            return data;
+        };
+    };
 
-  async News(language = null) {
-    if (language === null || language == "") {
-      language = this.language;
-    }
-    const response = await this.PreRequest(endpoints.news, {
-      language: language
-    });
-    return response.data;
-  }
+    async CreatorCodeSearch(name) {
+        if (name == {}) {
+            if (this.debug) { console.log("[FortniteAPI.js] 'Name' parameter is empty."); };
+            return false;
+        } else if (!name) {
+            if (this.debug) { console.log("[FortniteAPI.js] Missing 'Name' parameter."); };
+            return false;
+        } else {
+            const res = await this.PreRequest(Endpoints.Creator_CodeSearch, { name: name});
+            const result = await fetch(res, this.headers);
+            const data = await result.json();
+            return data;
+        };
+    };
 
-  async NewsBr(language = null) {
-    if (language === null || language == "") {
-      language = this.language;
-    }
-    const response = await this.PreRequest(endpoints.news_br, {
-      language: language
-    });
-    return response.data;
-  }
+    async CreatorCodeSearchAll(name) {
+        if (name == {}) {
+            if (this.debug) { console.log("[FortniteAPI.js] 'Name' parameter is empty."); };
+            return false;
+        } else if (!name) {
+            if (this.debug) { console.log("[FortniteAPI.js] Missing 'Name' parameter."); };
+            return false;
+        } else {
+            const res = await this.PreRequest(Endpoints.Creator_CodeSearchAll, { name: name});
+            const result = await fetch(res, this.headers);
+            const data = await result.json();
+            return data;
+        };
+    };
 
-  async NewsStw(language = null) {
-    if (language === null || language == "") {
-      language = this.language;
-    }
-    const response = await this.PreRequest(endpoints.news_stw, {
-      language: language
-    });
-    return response.data;
-  }
+    async CosmeticsNew(language) {
+        language = this.CheckLanguage(language);
+        const res = await this.PreRequest(Endpoints.Cosmetics_New, { language: language});
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data; 
+    };
 
-  async NewsCreative(language = null) {
-    if (language === null || language == "") {
-      language = this.language;
-    }
-    const response = await this.PreRequest(endpoints.news_creative, {
-      language: language
-    });
-    return response.data;
-  }
+    async CosmeticsList(language) {
+        language = this.CheckLanguage(language);
+        const res = await this.PreRequest(Endpoints.Cosmetics_List, { language: language});
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data; 
+    };
 
-  async Language() {
-    const languages = [
-      "ar",
-      "de",
-      "en",
-      "es",
-      "es-419",
-      "fr",
-      "it",
-      "ja",
-      "ko",
-      "pl",
-      "pt-BR",
-      "ru",
-      "tr",
-      "zh-CN",
-      "zh-Hant"
-    ];
+    async CosmeticsSearch(params) {
+        if (params == {}) {
+            if (this.debug) { console.log("[FortniteAPI.js] The Parameters are empty."); };
+            return false;
+        } else if (!params) {
+            if (this.debug) { console.log("[FortniteAPI.js] Please set the Parameters."); };
+            return false;
+        } else {
+            const res = await this.PreRequest(Endpoints.Cosmetics_Search, params);
+            const result = await fetch(res, this.headers);
+            const data = await result.json();
+            return data;
+        };
+    };
 
-    return languages;
-  }
+    async CosmeticsSearchAll(params) {
+        if (params == {}) {
+            if (this.debug) { console.log("[FortniteAPI.js] The Parameters are empty."); };
+            return false;
+        } else if (!params) {
+            if (this.debug) { console.log("[FortniteAPI.js] Please set the Parameters."); };
+            return false;
+        } else {
+            const res = await this.PreRequest(Endpoints.Cosmetics_SearchAll, params);
+            const result = await fetch(res, this.headers);
+            const data = await result.json();
+            return data;
+        };
+    };
 
-  async API() {
-    const api = {
-      url: endpoints.base
-    }
-    return api;
-  }
+    async CosmeticsSearchByID(ID, language) {
+        language = this.CheckLanguage(language);
+        if (!ID) {
+            if (this.debug) { console.log("[FortniteAPI.js] Missing 'ID' parameter."); };
+            return false;
+        } else if (ID == "") {
+            if (this.debug) { console.log("[FortniteAPI.js] 'ID' parameter is empty."); };
+            return false;
+        } else {
+            const res = await this.PreRequest(Endpoints.Cosmetics_SearchByID + ID, { language: language});
+            const result = await fetch(res, this.headers);
+            const data = await result.json();
+            return data;
+        };
+    };
+
+    async CosmeticsSearchByIDs(ID, language) {
+        language = this.CheckLanguage(language);
+        if (!ID) {
+            if (this.debug) { console.log("[FortniteAPI.js] Missing 'IDs' parameter."); };
+            return false;
+        } else if (ID == []) {
+            if (this.debug) { console.log("[FortniteAPI.js] 'IDs' parameter is empty."); };
+            return false;
+        } else {
+            const res = await this.PreRequest(Endpoints.Cosmetics_SearchByIDs, { id: ID, language: language});
+            const result = await fetch(res, this.headers);
+            const data = await result.json();
+            return data;
+        };
+    };
+
+    async News(language) {
+        language = this.CheckLanguage(language);
+        const res = await this.PreRequest(Endpoints.News, { language: language});
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data; 
+    };
+
+    async NewsBR(language) {
+        language = this.CheckLanguage(language);
+        const res = await this.PreRequest(Endpoints.News_BR, { language: language});
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data; 
+    };
+
+    async NewsSTW(language) {
+        language = this.CheckLanguage(language);
+        const res = await this.PreRequest(Endpoints.News_STW, { language: language});
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data; 
+    };
+
+    async NewsCreative(language) {
+        language = this.CheckLanguage(language);
+        const res = await this.PreRequest(Endpoints.News_Creative, { language: language});
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data; 
+    };
 };

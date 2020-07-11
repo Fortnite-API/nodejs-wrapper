@@ -19,12 +19,13 @@ npm i fortnite-api-com --save
 const FortniteAPI = require("fortnite-api-com");
 const config = {
   apikey: "API-Key",
-  language: "en"
+  language: "en",
+  debug: true
 };
 
 var Fortnite = new FortniteAPI(config);
 
-Fortnite.Shop()
+Fortnite.AES()
 .then(res => {
   console.log(res);
 }).catch(err => {
