@@ -36,10 +36,10 @@ module.exports = class FortniteAPI {
             for (var prop in query) {
                 if (Array.isArray(query[prop])) {
                     for (var item of query[prop]) {
-                        params += prop + "=" + item + "&";
+                        params += prop + "=" + encodeURI(item) + "&";
                     }
                 } else {
-                    params += prop + "=" + query[prop] + "&";
+                    params += prop + "=" + encodeURI(query[prop]) + "&";
                 }
             }
             if (params.length > 0) {
