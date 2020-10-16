@@ -87,9 +87,43 @@ module.exports = class FortniteAPI {
         return Endpoints.Language;
     };
 
+    async BRMap(language) {
+        language = this.CheckLanguage(language);
+        const res = await this.PreRequest(Endpoints.BR_Map, { language: language });
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data;
+        
+    };
+
+    async Playlists(language) {
+        language = this.CheckLanguage(language);
+        const res = await this.PreRequest(Endpoints.Playlists, { language: language });
+        const result = await fetch(res, this.headers);
+        const data = await result.json();
+        return data;
+        
+    };
+
+    async PlaylistsID(ID, language) {
+        language = this.CheckLanguage(language);
+        if (!ID) {
+            if (this.debug) { console.log("[FortniteAPI.js] Missing 'ID' parameter."); };
+            return false;
+        } else if (ID == "") {
+            if (this.debug) { console.log("[FortniteAPI.js] 'ID' parameter is empty."); };
+            return false;
+        } else {
+            const res = await this.PreRequest(Endpoints.Playlists_ID + ID, { language: language });
+            const result = await fetch(res, this.headers);
+            const data = await result.json();
+            return data;
+        };
+    };
+
     async Banners(language) {
         language = this.CheckLanguage(language);
-        const res = await this.PreRequest(Endpoints.Banners, { language: language});
+        const res = await this.PreRequest(Endpoints.Banners, { language: language });
         const result = await fetch(res, this.headers);
         const data = await result.json();
         return data;
@@ -136,7 +170,7 @@ module.exports = class FortniteAPI {
 
     async BRShop(language) {
         language = this.CheckLanguage(language);
-        const res = await this.PreRequest(Endpoints.BR_Shop, { language: language});
+        const res = await this.PreRequest(Endpoints.BR_Shop, { language: language });
         const result = await fetch(res, this.headers);
         const data = await result.json();
         return data; 
@@ -144,7 +178,7 @@ module.exports = class FortniteAPI {
 
     async BRShopCombined(language) {
         language = this.CheckLanguage(language);
-        const res = await this.PreRequest(Endpoints.BR_ShopCombined, { language: language});
+        const res = await this.PreRequest(Endpoints.BR_ShopCombined, { language: language });
         const result = await fetch(res, this.headers);
         const data = await result.json();
         return data; 
@@ -158,7 +192,7 @@ module.exports = class FortniteAPI {
             if (this.debug) { console.log("[FortniteAPI.js] Missing 'Name' parameter."); };
             return false;
         } else {
-            const res = await this.PreRequest(Endpoints.Creator_Code, { name: name});
+            const res = await this.PreRequest(Endpoints.Creator_Code, { name: name });
             const result = await fetch(res, this.headers);
             const data = await result.json();
             return data;
@@ -173,7 +207,7 @@ module.exports = class FortniteAPI {
             if (this.debug) { console.log("[FortniteAPI.js] Missing 'Name' parameter."); };
             return false;
         } else {
-            const res = await this.PreRequest(Endpoints.Creator_CodeSearch, { name: name});
+            const res = await this.PreRequest(Endpoints.Creator_CodeSearch, { name: name });
             const result = await fetch(res, this.headers);
             const data = await result.json();
             return data;
@@ -188,7 +222,7 @@ module.exports = class FortniteAPI {
             if (this.debug) { console.log("[FortniteAPI.js] Missing 'Name' parameter."); };
             return false;
         } else {
-            const res = await this.PreRequest(Endpoints.Creator_CodeSearchAll, { name: name});
+            const res = await this.PreRequest(Endpoints.Creator_CodeSearchAll, { name: name });
             const result = await fetch(res, this.headers);
             const data = await result.json();
             return data;
@@ -197,7 +231,7 @@ module.exports = class FortniteAPI {
 
     async CosmeticsNew(language) {
         language = this.CheckLanguage(language);
-        const res = await this.PreRequest(Endpoints.Cosmetics_New, { language: language});
+        const res = await this.PreRequest(Endpoints.Cosmetics_New, { language: language });
         const result = await fetch(res, this.headers);
         const data = await result.json();
         return data; 
@@ -205,7 +239,7 @@ module.exports = class FortniteAPI {
 
     async CosmeticsList(language) {
         language = this.CheckLanguage(language);
-        const res = await this.PreRequest(Endpoints.Cosmetics_List, { language: language});
+        const res = await this.PreRequest(Endpoints.Cosmetics_List, { language: language });
         const result = await fetch(res, this.headers);
         const data = await result.json();
         return data; 
@@ -250,7 +284,7 @@ module.exports = class FortniteAPI {
             if (this.debug) { console.log("[FortniteAPI.js] 'ID' parameter is empty."); };
             return false;
         } else {
-            const res = await this.PreRequest(Endpoints.Cosmetics_SearchByID + ID, { language: language});
+            const res = await this.PreRequest(Endpoints.Cosmetics_SearchByID + ID, { language: language });
             const result = await fetch(res, this.headers);
             const data = await result.json();
             return data;
@@ -266,7 +300,7 @@ module.exports = class FortniteAPI {
             if (this.debug) { console.log("[FortniteAPI.js] 'IDs' parameter is empty."); };
             return false;
         } else {
-            const res = await this.PreRequest(Endpoints.Cosmetics_SearchByIDs, { id: ID, language: language});
+            const res = await this.PreRequest(Endpoints.Cosmetics_SearchByIDs, { id: ID, language: language });
             const result = await fetch(res, this.headers);
             const data = await result.json();
             return data;
@@ -275,7 +309,7 @@ module.exports = class FortniteAPI {
 
     async News(language) {
         language = this.CheckLanguage(language);
-        const res = await this.PreRequest(Endpoints.News, { language: language});
+        const res = await this.PreRequest(Endpoints.News, { language: language });
         const result = await fetch(res, this.headers);
         const data = await result.json();
         return data; 
@@ -283,7 +317,7 @@ module.exports = class FortniteAPI {
 
     async NewsBR(language) {
         language = this.CheckLanguage(language);
-        const res = await this.PreRequest(Endpoints.News_BR, { language: language});
+        const res = await this.PreRequest(Endpoints.News_BR, { language: language });
         const result = await fetch(res, this.headers);
         const data = await result.json();
         return data; 
@@ -291,7 +325,7 @@ module.exports = class FortniteAPI {
 
     async NewsSTW(language) {
         language = this.CheckLanguage(language);
-        const res = await this.PreRequest(Endpoints.News_STW, { language: language});
+        const res = await this.PreRequest(Endpoints.News_STW, { language: language });
         const result = await fetch(res, this.headers);
         const data = await result.json();
         return data; 
@@ -299,7 +333,7 @@ module.exports = class FortniteAPI {
 
     async NewsCreative(language) {
         language = this.CheckLanguage(language);
-        const res = await this.PreRequest(Endpoints.News_Creative, { language: language});
+        const res = await this.PreRequest(Endpoints.News_Creative, { language: language });
         const result = await fetch(res, this.headers);
         const data = await result.json();
         return data; 

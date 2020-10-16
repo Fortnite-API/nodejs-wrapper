@@ -6,6 +6,11 @@ module.exports = {
 
     Language: ["ar", "de", "en", "es", "es-419", "fr", "it", "ja", "ko", "pl", "pt-BR", "ru", "tr", "zh-CN", "zh-Hant"],
 
+    BR_Map: `https://fortnite-api.com/v1/map`,
+
+    Playlists: `https://fortnite-api.com/v1/playlists`,
+    Playlists_ID: `https://fortnite-api.com/v1/playlists/`,
+
     Banners: `https://fortnite-api.com/v1/banners`,
     Banners_Colors: `https://fortnite-api.com/v1/banners/colors`,
 

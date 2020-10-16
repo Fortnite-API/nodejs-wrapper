@@ -7,13 +7,12 @@ const config = {
 
 var Fortnite = new FortniteAPI(config);
 
-Fortnite.AES()
+Fortnite.Parameters()
 .then(res => {
   console.log(res);
 }).catch(err => {
   console.log(err);
 });
-
 
 /*
 
@@ -39,6 +38,27 @@ Fortnite.AES()
 });
 
 Fortnite.Language()
+.then(res => {
+  console.log(res);
+}).catch(err => {
+  console.log(err);
+});
+
+Fortnite.BRMap("en")
+.then(res => {
+  console.log(res);
+}).catch(err => {
+  console.log(err);
+});
+
+Fortnite.Playlists("en")
+.then(res => {
+  console.log(res);
+}).catch(err => {
+  console.log(err);
+});
+
+Fortnite.PlaylistsID("Playlist_DefaultSolo", "en")
 .then(res => {
   console.log(res);
 }).catch(err => {
