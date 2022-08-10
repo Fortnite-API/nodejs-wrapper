@@ -53,4 +53,4 @@ jobs:
           mv ../master/FNAPIcom.js ./FNAPIcom.js
           git add . -A
           git diff-index --quiet HEAD || git commit -m "Built for ${CURRENT_BRANCH}: ${GITHUB_SHA}"
-          git push https://FNAPIcomBot:${{ secrets.BOT_PAT }}@github.com/ThisNils/FNAPIcom web
+          git push https://FNAPIcomBot:${{ secrets.BOT_PAT }}@github.com/Fortnite-API/nodejs-wrapper web
