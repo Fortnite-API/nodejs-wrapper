@@ -16,7 +16,7 @@ Note: This is the browser version. You can find the NodeJS version [here](https:
 <h2>Installation</h2>
 
 ```html
-<script src="https://raw.githubusercontent.com/Fortnite-API/nodejs-wrapper/web/FNAPIcom.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Fortnite-API/nodejs-wrapper@1.0.3-web/FNAPIcom.js"></script>
 ```
 
 <h2>Usage example</h2>
@@ -26,7 +26,7 @@ Note: This is the browser version. You can find the NodeJS version [here](https:
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="https://raw.githubusercontent.com/Fortnite-API/nodejs-wrapper/web/FNAPIcom.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Fortnite-API/nodejs-wrapper@1.0.3-web/FNAPIcom.js"></script>
   </head>
   <body>
     <pre id="response"></pre>
