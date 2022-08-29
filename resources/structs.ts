@@ -11,9 +11,19 @@ export interface ClientConfig {
   apiKey?: string;
 
   /**
-   * The default language for all endpoints. Defaults to 'en'
+   * The default language for all endpoints. Defaults to `en`
    */
   language: Language;
+
+  /**
+   * Extra timeout for stats ratelimits. Defaults to `0`.
+   *
+   * Normally the client will send 3 stats requests per 1100 milliseconds.
+   * Setting this option to `100` increases the rate to 3 per 1200 milliseconds.
+   *
+   * You should increase this option if you're getting 429 responses
+   */
+  rateLimitExtraTimeout: number;
 }
 
 export interface ClientOptions extends Partial<ClientConfig> {}

@@ -1,12 +1,12 @@
 /* eslint-disable no-restricted-syntax */
 import axios, { AxiosError, AxiosInstance } from 'axios';
 import rateLimit, { RateLimitedAxiosInstance } from 'axios-rate-limit';
-import { URLSearchParams } from 'url';
 import { version } from '../../package.json';
 import Client from '../client/Client';
 import FortniteAPIError from '../exceptions/FortniteAPIError';
 import InvalidAPIKeyError from '../exceptions/InvalidAPIKeyError';
 import MissingAPIKeyError from '../exceptions/MissingAPIKeyError';
+import { serializeParams } from '../util/util';
 import { FortniteAPIResponseData } from './httpStructs';
 
 class HTTP {
@@ -29,7 +29,10 @@ class HTTP {
       },
     });
 
-    this.statsAxios = rateLimit(this.axios, { maxRequests: 3, perMilliseconds: 1100 });
+    this.statsAxios = rateLimit(this.axios, {
+      maxRequests: 3,
+      perMilliseconds: 1100 + this.client.config.rateLimitExtraTimeout,
+    });
   }
 
   public async fetch(url: string, params?: any): Promise<FortniteAPIResponseData> {
@@ -37,19 +40,7 @@ class HTTP {
       const response = await this.axios({
         url,
         params,
-        paramsSerializer: (p) => {
-          const searchParams = new URLSearchParams();
-
-          for (const [key, value] of Object.entries(p)) {
-            if (Array.isArray(value)) {
-              for (const singleValue of value) searchParams.append(key, singleValue);
-            } else {
-              searchParams.append(key, (value as any));
-            }
-          }
-
-          return searchParams.toString();
-        },
+        paramsSerializer: serializeParams,
       });
 
       return response.data;
@@ -72,22 +63,12 @@ class HTTP {
 
   public async fetchStats(url: string, params?: any): Promise<FortniteAPIResponseData> {
     try {
-      const response = await this.statsAxios.get(url, {
+      const response = await this.statsAxios({
+        url,
         params,
-        paramsSerializer: (p) => {
-          const searchParams = new URLSearchParams();
-
-          for (const [key, value] of Object.entries(p)) {
-            if (Array.isArray(value)) {
-              for (const singleValue of value) searchParams.append(key, singleValue);
-            } else {
-              searchParams.append(key, (value as any));
-            }
-          }
-
-          return searchParams.toString();
-        },
+        paramsSerializer: serializeParams,
       });
+
       return response.data;
     } catch (e) {
       if (e instanceof AxiosError && e.response?.data?.error) {

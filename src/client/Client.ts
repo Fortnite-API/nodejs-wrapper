@@ -21,6 +21,7 @@ class Client {
   constructor(config?: ClientOptions) {
     this.config = {
       language: Language.English,
+      rateLimitExtraTimeout: 0,
       ...config,
     };
 
