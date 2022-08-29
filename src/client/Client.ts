@@ -21,6 +21,7 @@ class Client {
   constructor(config?: ClientOptions) {
     this.config = {
       language: Language.English,
+      rateLimitExtraTimeout: 0,
       ...config,
     };
 
@@ -186,7 +187,7 @@ class Client {
    * @param options Options for this endpoint
    */
   public async brStats(options: BRStatsRequestParams): Promise<BRStatsResponseData> {
-    return this.http.fetch('/v2/stats/br/v2', options);
+    return this.http.fetchStats('/v2/stats/br/v2', options);
   }
 
   /**
@@ -195,7 +196,7 @@ class Client {
    * @param options Options for this endpoint
    */
   public async brStatsByID(options: { id: string } & BRStatsByAccountIDRequestParams): Promise<BRStatsByAccountIDResponseData> {
-    return this.http.fetch(`/v2/stats/br/v2/${options.id}`, options);
+    return this.http.fetchStats(`/v2/stats/br/v2/${options.id}`, options);
   }
 }
 
