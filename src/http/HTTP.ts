@@ -12,8 +12,7 @@ import { FortniteAPIResponseData } from './httpStructs';
 class HTTP {
   public client: Client;
   public axios: AxiosInstance;
-  public statsAxios : RateLimitedAxiosInstance;
-
+  public statsAxios: RateLimitedAxiosInstance;
   constructor(client: Client) {
     this.client = client;
 
@@ -28,9 +27,9 @@ class HTTP {
           Authorization: this.client.config.apiKey,
         } : {},
       },
-      
     });
-    this.statsAxios = rateLimit(this.axios, { maxRequests: 3, perMilliseconds: 1100, maxRPS: 3 });
+
+    this.statsAxios = rateLimit(this.axios, { maxRequests: 3, perMilliseconds: 1100 });
   }
 
   public async fetch(url: string, params?: any): Promise<FortniteAPIResponseData> {
@@ -70,7 +69,7 @@ class HTTP {
       throw e;
     }
   }
-  
+
   public async fetchStats(url: string, params?: any): Promise<FortniteAPIResponseData> {
     try {
       const response = await this.statsAxios.get(url, {
