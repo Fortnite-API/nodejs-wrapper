@@ -9,8 +9,6 @@ import InvalidAPIKeyError from '../exceptions/InvalidAPIKeyError';
 import MissingAPIKeyError from '../exceptions/MissingAPIKeyError';
 import { FortniteAPIResponseData } from './httpStructs';
 
-let nmb = 0;
-
 class HTTP {
   public client: Client;
   public axios: AxiosInstance;
@@ -36,7 +34,6 @@ class HTTP {
   }
 
   public async fetch(url: string, params?: any): Promise<FortniteAPIResponseData> {
-    console.log(``)
     try {
       const response = await this.axios({
         url,
@@ -73,6 +70,7 @@ class HTTP {
       throw e;
     }
   }
+  
   public async fetchStats(url: string, params?: any): Promise<FortniteAPIResponseData> {
     try {
       const response = await this.statsAxios.get(url, {
