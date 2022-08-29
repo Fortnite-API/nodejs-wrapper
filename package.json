@@ -1,6 +1,6 @@
 {
   "name": "fnapicom",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "JavaScript / TypeScript wrapper for Fortnite-API.com",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
