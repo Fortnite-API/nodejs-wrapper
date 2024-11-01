@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-syntax */
-import axios, { AxiosError, AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
 import rateLimit, { RateLimitedAxiosInstance } from 'axios-rate-limit';
 import { version } from '../../package.json';
 import Client from '../client/Client';
@@ -35,13 +35,15 @@ class HTTP {
     });
   }
 
-  public async fetch(url: string, params?: any): Promise<FortniteAPIResponseData> {
+  private async fetchWithInstance(instance: AxiosInstance, url: string, params?: any): Promise<FortniteAPIResponseData> {
+    const config: AxiosRequestConfig = {
+      url,
+      params,
+      paramsSerializer: serializeParams,
+    };
+
     try {
-      const response = await this.axios({
-        url,
-        params,
-        paramsSerializer: serializeParams,
-      });
+      const response = await this.axios(config);
 
       return response.data;
     } catch (e) {
@@ -54,37 +56,19 @@ class HTTP {
           }
         }
 
-        throw new FortniteAPIError(e.response.data, e.config, e.response.status);
+        throw new FortniteAPIError(e.response.data, config, e.response.status);
       }
 
       throw e;
     }
   }
 
+  public async fetch(url: string, params?: any): Promise<FortniteAPIResponseData> {
+    return this.fetchWithInstance(this.axios, url, params);
+  }
+
   public async fetchStats(url: string, params?: any): Promise<FortniteAPIResponseData> {
-    try {
-      const response = await this.statsAxios({
-        url,
-        params,
-        paramsSerializer: serializeParams,
-      });
-
-      return response.data;
-    } catch (e) {
-      if (e instanceof AxiosError && e.response?.data?.error) {
-        if (e.response.status === 401) {
-          if (this.client.config.apiKey) {
-            throw new InvalidAPIKeyError(url);
-          } else {
-            throw new MissingAPIKeyError(url);
-          }
-        }
-
-        throw new FortniteAPIError(e.response.data, e.config, e.response.status);
-      }
-
-      throw e;
-    }
+    return this.fetchWithInstance(this.statsAxios, url, params);
   }
 }
 

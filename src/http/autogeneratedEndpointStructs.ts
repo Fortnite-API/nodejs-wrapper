@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars, no-shadow */
 import { FortniteAPIResponseData } from './httpStructs';
 
+// Auto-generated at 2024-11-01T16:41:06.158Z
+
 /* -----------------------------------------------------
 AES Keys
 GET https://fortnite-api.com/v2/aes
@@ -43,7 +45,7 @@ export interface BannersResponseData extends FortniteAPIResponseData {
       smallIcon: string;
       icon: string;
     };
-  }[];
+  };
 }
 
 export interface BannersRequestParams {
@@ -64,99 +66,25 @@ export interface BannerColorsResponseData extends FortniteAPIResponseData {
     color: string;
     category: string;
     subCategoryGroup: number;
-  }[];
+  };
 }
 
 export interface BannerColorsRequestParams {}
 
 /* -----------------------------------------------------
-Cosmetics List
-GET https://fortnite-api.com/v2/cosmetics/br
+All Cosmetics
+GET https://fortnite-api.com/v2/cosmetics
 ----------------------------------------------------- */
 
-export interface CosmeticsListResponseData extends FortniteAPIResponseData {
+export interface AllCosmeticsResponseData extends FortniteAPIResponseData {
   data: {
-    id: string;
-    name: string;
-    description: string;
-    type: {
-      value: string;
-      displayValue: string;
-      backendValue: string;
-    };
-    rarity: {
-      value: string;
-      displayValue: string;
-      backendValue: string;
-    };
-    series: {
-      value: string;
-      image: string;
-      colors: string[];
-      backendValue: string;
-    };
-    set: {
-      value: string;
-      text: string;
-      backendValue: string;
-    };
-    introduction: {
-      chapter: string;
-      season: string;
-      text: string;
-      backendValue: number;
-    };
-    images: {
-      smallIcon: string;
-      icon: string;
-      featured: string;
-      Other: Record<string, string>;
-    };
-    variants: {
-      channel: string;
-      type: string;
-      options: {
-        tag: string;
-        name: string;
-        image: string;
-      }[];
-    }[];
-    searchTags: string[];
-    gameplayTags: string[];
-    metaTags: string[];
-    showcaseVideo: string;
-    dynamicPakId: string;
-    displayAssetPath: string;
-    definitionPath: string;
-    path: string;
-    added: string;
-    shopHistory: string[];
-  }[];
-}
-
-export interface CosmeticsListRequestParams {
-  /**
-   * Sets the output language. Defaults to `en`
-   */
-  language?: string;
-}
-
-/* -----------------------------------------------------
-New Cosmetics
-GET https://fortnite-api.com/v2/cosmetics/br/new
------------------------------------------------------ */
-
-export interface NewCosmeticsResponseData extends FortniteAPIResponseData {
-  data: {
-    build: string;
-    previousBuild: string;
-    hash: string;
-    date: string;
-    lastAddition: string;
-    items: {
+    br: {
       id: string;
       name: string;
       description: string;
+      exclusiveDescription: string;
+      unlockRequirements: string;
+      customExclusiveCallout: string;
       type: {
         value: string;
         displayValue: string;
@@ -188,7 +116,16 @@ export interface NewCosmeticsResponseData extends FortniteAPIResponseData {
         smallIcon: string;
         icon: string;
         featured: string;
-        Other: Record<string, string>;
+        lego: {
+          small: string;
+          large: string;
+          wide: string;
+        };
+        bean: {
+          small: string;
+          large: string;
+        };
+        Other: any;
       };
       variants: {
         channel: string;
@@ -196,20 +133,403 @@ export interface NewCosmeticsResponseData extends FortniteAPIResponseData {
         options: {
           tag: string;
           name: string;
+          unlockRequirements: string;
           image: string;
         }[];
       }[];
+      builtInEmoteIds: string[];
       searchTags: string[];
       gameplayTags: string[];
       metaTags: string[];
       showcaseVideo: string;
       dynamicPakId: string;
+      itemPreviewHeroPath: string;
       displayAssetPath: string;
       definitionPath: string;
       path: string;
       added: string;
       shopHistory: string[];
     }[];
+    tracks: {
+      id: string;
+      devName: string;
+      title: string;
+      artist: string;
+      album: string;
+      releaseYear: number;
+      bpm: number;
+      duration: number;
+      difficulty: {
+        vocals: number;
+        guitar: number;
+        bass: number;
+        plasticBass: number;
+        drums: number;
+        plasticDrums: number;
+      };
+      gameplayTags: string[];
+      genres: string[];
+      albumArt: string;
+      added: string;
+      shopHistory: string[];
+    }[];
+    instruments: {
+      id: string;
+      name: string;
+      description: string;
+      type: {
+        value: string;
+        displayValue: string;
+        backendValue: string;
+      };
+      rarity: {
+        value: string;
+        displayValue: string;
+        backendValue: string;
+      };
+      images: {
+        small: string;
+        large: string;
+      };
+      series: {
+        value: string;
+        image: string;
+        colors: string[];
+        backendValue: string;
+      };
+      gameplayTags: string[];
+      path: string;
+      showcaseVideo: string;
+      added: string;
+      shopHistory: string[];
+    }[];
+    cars: {
+      id: string;
+      vehicleId: string;
+      name: string;
+      description: string;
+      type: {
+        value: string;
+        displayValue: string;
+        backendValue: string;
+      };
+      rarity: {
+        value: string;
+        displayValue: string;
+        backendValue: string;
+      };
+      images: {
+        small: string;
+        large: string;
+      };
+      series: {
+        value: string;
+        image: string;
+        colors: string[];
+        backendValue: string;
+      };
+      gameplayTags: string[];
+      path: string;
+      showcaseVideo: string;
+      added: string;
+      shopHistory: string[];
+    }[];
+    lego: {
+      id: string;
+      cosmeticId: string;
+      soundLibraryTags: string[];
+      images: {
+        small: string;
+        large: string;
+        wide: string;
+      };
+      path: string;
+      added: string;
+    }[];
+    legoKits: {
+      id: string;
+      name: string;
+      type: {
+        value: string;
+        displayValue: string;
+        backendValue: string;
+      };
+      series: {
+        value: string;
+        image: string;
+        colors: string[];
+        backendValue: string;
+      };
+      gameplayTags: string[];
+      images: {
+        small: string;
+        large: string;
+        wide: string;
+      };
+      path: string;
+      added: string;
+      shopHistory: string[];
+    }[];
+    beans: {
+      id: string;
+      cosmeticId: string;
+      name: string;
+      gender: string;
+      gameplayTags: string[];
+      images: {
+        small: string;
+        large: string;
+      };
+      path: string;
+      added: string;
+    }[];
+  };
+}
+
+export interface AllCosmeticsRequestParams {
+  /**
+   * Sets the output language. Defaults to `en`
+   */
+  language?: string;
+}
+
+/* -----------------------------------------------------
+New Cosmetics
+GET https://fortnite-api.com/v2/cosmetics/new
+----------------------------------------------------- */
+
+export interface NewCosmeticsResponseData extends FortniteAPIResponseData {
+  data: {
+    date: string;
+    build: string;
+    previousBuild: string;
+    hashes: {
+      all: string;
+      br: string;
+      tracks: string;
+      instruments: string;
+      cars: string;
+      lego: string;
+      legoKits: string;
+      beans: string;
+    };
+    lastAdditions: {
+      all: string;
+      br: string;
+      tracks: string;
+      instruments: string;
+      cars: string;
+      lego: string;
+      legoKits: string;
+      beans: string;
+    };
+    items: {
+      br: {
+        id: string;
+        name: string;
+        description: string;
+        exclusiveDescription: string;
+        unlockRequirements: string;
+        customExclusiveCallout: string;
+        type: {
+          value: string;
+          displayValue: string;
+          backendValue: string;
+        };
+        rarity: {
+          value: string;
+          displayValue: string;
+          backendValue: string;
+        };
+        series: {
+          value: string;
+          image: string;
+          colors: string[];
+          backendValue: string;
+        };
+        set: {
+          value: string;
+          text: string;
+          backendValue: string;
+        };
+        introduction: {
+          chapter: string;
+          season: string;
+          text: string;
+          backendValue: number;
+        };
+        images: {
+          smallIcon: string;
+          icon: string;
+          featured: string;
+          lego: {
+            small: string;
+            large: string;
+            wide: string;
+          };
+          bean: {
+            small: string;
+            large: string;
+          };
+          Other: any;
+        };
+        variants: {
+          channel: string;
+          type: string;
+          options: {
+            tag: string;
+            name: string;
+            unlockRequirements: string;
+            image: string;
+          }[];
+        }[];
+        builtInEmoteIds: string[];
+        searchTags: string[];
+        gameplayTags: string[];
+        metaTags: string[];
+        showcaseVideo: string;
+        dynamicPakId: string;
+        itemPreviewHeroPath: string;
+        displayAssetPath: string;
+        definitionPath: string;
+        path: string;
+        added: string;
+        shopHistory: string[];
+      }[];
+      tracks: {
+        id: string;
+        devName: string;
+        title: string;
+        artist: string;
+        album: string;
+        releaseYear: number;
+        bpm: number;
+        duration: number;
+        difficulty: {
+          vocals: number;
+          guitar: number;
+          bass: number;
+          plasticBass: number;
+          drums: number;
+          plasticDrums: number;
+        };
+        gameplayTags: string[];
+        genres: string[];
+        albumArt: string;
+        added: string;
+        shopHistory: string[];
+      }[];
+      instruments: {
+        id: string;
+        name: string;
+        description: string;
+        type: {
+          value: string;
+          displayValue: string;
+          backendValue: string;
+        };
+        rarity: {
+          value: string;
+          displayValue: string;
+          backendValue: string;
+        };
+        images: {
+          small: string;
+          large: string;
+        };
+        series: {
+          value: string;
+          image: string;
+          colors: string[];
+          backendValue: string;
+        };
+        gameplayTags: string[];
+        path: string;
+        showcaseVideo: string;
+        added: string;
+        shopHistory: string[];
+      }[];
+      cars: {
+        id: string;
+        vehicleId: string;
+        name: string;
+        description: string;
+        type: {
+          value: string;
+          displayValue: string;
+          backendValue: string;
+        };
+        rarity: {
+          value: string;
+          displayValue: string;
+          backendValue: string;
+        };
+        images: {
+          small: string;
+          large: string;
+        };
+        series: {
+          value: string;
+          image: string;
+          colors: string[];
+          backendValue: string;
+        };
+        gameplayTags: string[];
+        path: string;
+        showcaseVideo: string;
+        added: string;
+        shopHistory: string[];
+      }[];
+      lego: {
+        id: string;
+        cosmeticId: string;
+        soundLibraryTags: string[];
+        images: {
+          small: string;
+          large: string;
+          wide: string;
+        };
+        path: string;
+        added: string;
+      }[];
+      legoKits: {
+        id: string;
+        name: string;
+        type: {
+          value: string;
+          displayValue: string;
+          backendValue: string;
+        };
+        series: {
+          value: string;
+          image: string;
+          colors: string[];
+          backendValue: string;
+        };
+        gameplayTags: string[];
+        images: {
+          small: string;
+          large: string;
+          wide: string;
+        };
+        path: string;
+        added: string;
+        shopHistory: string[];
+      }[];
+      beans: {
+        id: string;
+        cosmeticId: string;
+        name: string;
+        gender: string;
+        gameplayTags: string[];
+        images: {
+          small: string;
+          large: string;
+        };
+        path: string;
+        added: string;
+      }[];
+    };
   };
 }
 
@@ -221,15 +541,318 @@ export interface NewCosmeticsRequestParams {
 }
 
 /* -----------------------------------------------------
-Cosmetics by ID
+BR Cosmetics List
+GET https://fortnite-api.com/v2/cosmetics/br
+----------------------------------------------------- */
+
+export interface BRCosmeticsListResponseData extends FortniteAPIResponseData {
+  data: {
+    id: string;
+    name: string;
+    description: string;
+    exclusiveDescription: string;
+    unlockRequirements: string;
+    customExclusiveCallout: string;
+    type: {
+      value: string;
+      displayValue: string;
+      backendValue: string;
+    };
+    rarity: {
+      value: string;
+      displayValue: string;
+      backendValue: string;
+    };
+    series: {
+      value: string;
+      image: string;
+      colors: string[];
+      backendValue: string;
+    };
+    set: {
+      value: string;
+      text: string;
+      backendValue: string;
+    };
+    introduction: {
+      chapter: string;
+      season: string;
+      text: string;
+      backendValue: number;
+    };
+    images: {
+      smallIcon: string;
+      icon: string;
+      featured: string;
+      lego: {
+        small: string;
+        large: string;
+        wide: string;
+      };
+      bean: {
+        small: string;
+        large: string;
+      };
+      Other: any;
+    };
+    variants: {
+      channel: string;
+      type: string;
+      options: {
+        tag: string;
+        name: string;
+        unlockRequirements: string;
+        image: string;
+      }[];
+    }[];
+    builtInEmoteIds: string[];
+    searchTags: string[];
+    gameplayTags: string[];
+    metaTags: string[];
+    showcaseVideo: string;
+    dynamicPakId: string;
+    itemPreviewHeroPath: string;
+    displayAssetPath: string;
+    definitionPath: string;
+    path: string;
+    added: string;
+    shopHistory: string[];
+  };
+}
+
+export interface BRCosmeticsListRequestParams {
+  /**
+   * Sets the output language. Defaults to `en`
+   */
+  language?: string;
+}
+
+/* -----------------------------------------------------
+Track Cosmetics List
+GET https://fortnite-api.com/v2/cosmetics/tracks
+----------------------------------------------------- */
+
+export interface TrackCosmeticsListResponseData extends FortniteAPIResponseData {
+  data: {
+    id: string;
+    devName: string;
+    title: string;
+    artist: string;
+    album: string;
+    releaseYear: number;
+    bpm: number;
+    duration: number;
+    difficulty: {
+      vocals: number;
+      guitar: number;
+      bass: number;
+      plasticBass: number;
+      drums: number;
+      plasticDrums: number;
+    };
+    gameplayTags: string[];
+    genres: string[];
+    albumArt: string;
+    added: string;
+    shopHistory: string[];
+  };
+}
+
+export interface TrackCosmeticsListRequestParams {}
+
+/* -----------------------------------------------------
+Instrument Cosmetics List
+GET https://fortnite-api.com/v2/cosmetics/instruments
+----------------------------------------------------- */
+
+export interface InstrumentCosmeticsListResponseData extends FortniteAPIResponseData {
+  data: {
+    id: string;
+    name: string;
+    description: string;
+    type: {
+      value: string;
+      displayValue: string;
+      backendValue: string;
+    };
+    rarity: {
+      value: string;
+      displayValue: string;
+      backendValue: string;
+    };
+    images: {
+      small: string;
+      large: string;
+    };
+    series: {
+      value: string;
+      image: string;
+      colors: string[];
+      backendValue: string;
+    };
+    gameplayTags: string[];
+    path: string;
+    showcaseVideo: string;
+    added: string;
+    shopHistory: string[];
+  };
+}
+
+export interface InstrumentCosmeticsListRequestParams {
+  /**
+   * Sets the output language. Defaults to `en`
+   */
+  language?: string;
+}
+
+/* -----------------------------------------------------
+Car Cosmetics List
+GET https://fortnite-api.com/v2/cosmetics/cars
+----------------------------------------------------- */
+
+export interface CarCosmeticsListResponseData extends FortniteAPIResponseData {
+  data: {
+    id: string;
+    vehicleId: string;
+    name: string;
+    description: string;
+    type: {
+      value: string;
+      displayValue: string;
+      backendValue: string;
+    };
+    rarity: {
+      value: string;
+      displayValue: string;
+      backendValue: string;
+    };
+    images: {
+      small: string;
+      large: string;
+    };
+    series: {
+      value: string;
+      image: string;
+      colors: string[];
+      backendValue: string;
+    };
+    gameplayTags: string[];
+    path: string;
+    showcaseVideo: string;
+    added: string;
+    shopHistory: string[];
+  };
+}
+
+export interface CarCosmeticsListRequestParams {
+  /**
+   * Sets the output language. Defaults to `en`
+   */
+  language?: string;
+}
+
+/* -----------------------------------------------------
+Lego Cosmetics List
+GET https://fortnite-api.com/v2/cosmetics/lego
+----------------------------------------------------- */
+
+export interface LegoCosmeticsListResponseData extends FortniteAPIResponseData {
+  data: {
+    id: string;
+    cosmeticId: string;
+    soundLibraryTags: string[];
+    images: {
+      small: string;
+      large: string;
+      wide: string;
+    };
+    path: string;
+    added: string;
+  };
+}
+
+export interface LegoCosmeticsListRequestParams {}
+
+/* -----------------------------------------------------
+Lego Kit Cosmetics List
+GET https://fortnite-api.com/v2/cosmetics/lego/kits
+----------------------------------------------------- */
+
+export interface LegoKitCosmeticsListResponseData extends FortniteAPIResponseData {
+  data: {
+    id: string;
+    name: string;
+    type: {
+      value: string;
+      displayValue: string;
+      backendValue: string;
+    };
+    series: {
+      value: string;
+      image: string;
+      colors: string[];
+      backendValue: string;
+    };
+    gameplayTags: string[];
+    images: {
+      small: string;
+      large: string;
+      wide: string;
+    };
+    path: string;
+    added: string;
+    shopHistory: string[];
+  };
+}
+
+export interface LegoKitCosmeticsListRequestParams {
+  /**
+   * Sets the output language. Defaults to `en`
+   */
+  language?: string;
+}
+
+/* -----------------------------------------------------
+Bean Cosmetics List
+GET https://fortnite-api.com/v2/cosmetics/beans
+----------------------------------------------------- */
+
+export interface BeanCosmeticsListResponseData extends FortniteAPIResponseData {
+  data: {
+    id: string;
+    cosmeticId: string;
+    name: string;
+    gender: string;
+    gameplayTags: string[];
+    images: {
+      small: string;
+      large: string;
+    };
+    path: string;
+    added: string;
+  };
+}
+
+export interface BeanCosmeticsListRequestParams {
+  /**
+   * Sets the output language. Defaults to `en`
+   */
+  language?: string;
+}
+
+/* -----------------------------------------------------
+BR Cosmetic by ID
 GET https://fortnite-api.com/v2/cosmetics/br/{cosmetic-id}
 ----------------------------------------------------- */
 
-export interface CosmeticsByIDResponseData extends FortniteAPIResponseData {
+export interface BRCosmeticByIDResponseData extends FortniteAPIResponseData {
   data: {
     id: string;
     name: string;
     description: string;
+    exclusiveDescription: string;
+    unlockRequirements: string;
+    customExclusiveCallout: string;
     type: {
       value: string;
       displayValue: string;
@@ -261,7 +884,16 @@ export interface CosmeticsByIDResponseData extends FortniteAPIResponseData {
       smallIcon: string;
       icon: string;
       featured: string;
-      Other: Record<string, string>;
+      lego: {
+        small: string;
+        large: string;
+        wide: string;
+      };
+      bean: {
+        small: string;
+        large: string;
+      };
+      Other: any;
     };
     variants: {
       channel: string;
@@ -269,14 +901,17 @@ export interface CosmeticsByIDResponseData extends FortniteAPIResponseData {
       options: {
         tag: string;
         name: string;
+        unlockRequirements: string;
         image: string;
       }[];
     }[];
+    builtInEmoteIds: string[];
     searchTags: string[];
     gameplayTags: string[];
     metaTags: string[];
     showcaseVideo: string;
     dynamicPakId: string;
+    itemPreviewHeroPath: string;
     displayAssetPath: string;
     definitionPath: string;
     path: string;
@@ -285,7 +920,7 @@ export interface CosmeticsByIDResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface CosmeticsByIDRequestParams {
+export interface BRCosmeticByIDRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -293,15 +928,18 @@ export interface CosmeticsByIDRequestParams {
 }
 
 /* -----------------------------------------------------
-Cosmetics Search
+BR Cosmetic Search
 GET https://fortnite-api.com/v2/cosmetics/br/search
 ----------------------------------------------------- */
 
-export interface CosmeticsSearchResponseData extends FortniteAPIResponseData {
+export interface BRCosmeticSearchResponseData extends FortniteAPIResponseData {
   data: {
     id: string;
     name: string;
     description: string;
+    exclusiveDescription: string;
+    unlockRequirements: string;
+    customExclusiveCallout: string;
     type: {
       value: string;
       displayValue: string;
@@ -333,7 +971,16 @@ export interface CosmeticsSearchResponseData extends FortniteAPIResponseData {
       smallIcon: string;
       icon: string;
       featured: string;
-      Other: Record<string, string>;
+      lego: {
+        small: string;
+        large: string;
+        wide: string;
+      };
+      bean: {
+        small: string;
+        large: string;
+      };
+      Other: any;
     };
     variants: {
       channel: string;
@@ -341,14 +988,17 @@ export interface CosmeticsSearchResponseData extends FortniteAPIResponseData {
       options: {
         tag: string;
         name: string;
+        unlockRequirements: string;
         image: string;
       }[];
     }[];
+    builtInEmoteIds: string[];
     searchTags: string[];
     gameplayTags: string[];
     metaTags: string[];
     showcaseVideo: string;
     dynamicPakId: string;
+    itemPreviewHeroPath: string;
     displayAssetPath: string;
     definitionPath: string;
     path: string;
@@ -357,7 +1007,7 @@ export interface CosmeticsSearchResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface CosmeticsSearchRequestParams {
+export interface BRCosmeticSearchRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -501,15 +1151,18 @@ export interface CosmeticsSearchRequestParams {
 }
 
 /* -----------------------------------------------------
-Cosmetics Search All
+BR Cosmetics Search
 GET https://fortnite-api.com/v2/cosmetics/br/search/all
 ----------------------------------------------------- */
 
-export interface CosmeticsSearchAllResponseData extends FortniteAPIResponseData {
+export interface BRCosmeticsSearchResponseData extends FortniteAPIResponseData {
   data: {
     id: string;
     name: string;
     description: string;
+    exclusiveDescription: string;
+    unlockRequirements: string;
+    customExclusiveCallout: string;
     type: {
       value: string;
       displayValue: string;
@@ -541,7 +1194,16 @@ export interface CosmeticsSearchAllResponseData extends FortniteAPIResponseData 
       smallIcon: string;
       icon: string;
       featured: string;
-      Other: Record<string, string>;
+      lego: {
+        small: string;
+        large: string;
+        wide: string;
+      };
+      bean: {
+        small: string;
+        large: string;
+      };
+      Other: any;
     };
     variants: {
       channel: string;
@@ -549,23 +1211,26 @@ export interface CosmeticsSearchAllResponseData extends FortniteAPIResponseData 
       options: {
         tag: string;
         name: string;
+        unlockRequirements: string;
         image: string;
       }[];
     }[];
+    builtInEmoteIds: string[];
     searchTags: string[];
     gameplayTags: string[];
     metaTags: string[];
     showcaseVideo: string;
     dynamicPakId: string;
+    itemPreviewHeroPath: string;
     displayAssetPath: string;
     definitionPath: string;
     path: string;
     added: string;
     shopHistory: string[];
-  }[];
+  };
 }
 
-export interface CosmeticsSearchAllRequestParams {
+export interface BRCosmeticsSearchRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -709,15 +1374,18 @@ export interface CosmeticsSearchAllRequestParams {
 }
 
 /* -----------------------------------------------------
-Cosmetics Search by IDs
+BR Cosmetics Search by IDs
 GET https://fortnite-api.com/v2/cosmetics/br/search/ids
 ----------------------------------------------------- */
 
-export interface CosmeticsSearchByIDsResponseData extends FortniteAPIResponseData {
+export interface BRCosmeticsSearchByIDsResponseData extends FortniteAPIResponseData {
   data: {
     id: string;
     name: string;
     description: string;
+    exclusiveDescription: string;
+    unlockRequirements: string;
+    customExclusiveCallout: string;
     type: {
       value: string;
       displayValue: string;
@@ -749,7 +1417,16 @@ export interface CosmeticsSearchByIDsResponseData extends FortniteAPIResponseDat
       smallIcon: string;
       icon: string;
       featured: string;
-      Other: Record<string, string>;
+      lego: {
+        small: string;
+        large: string;
+        wide: string;
+      };
+      bean: {
+        small: string;
+        large: string;
+      };
+      Other: any;
     };
     variants: {
       channel: string;
@@ -757,23 +1434,26 @@ export interface CosmeticsSearchByIDsResponseData extends FortniteAPIResponseDat
       options: {
         tag: string;
         name: string;
+        unlockRequirements: string;
         image: string;
       }[];
     }[];
+    builtInEmoteIds: string[];
     searchTags: string[];
     gameplayTags: string[];
     metaTags: string[];
     showcaseVideo: string;
     dynamicPakId: string;
+    itemPreviewHeroPath: string;
     displayAssetPath: string;
     definitionPath: string;
     path: string;
     added: string;
     shopHistory: string[];
-  }[];
+  };
 }
 
-export interface CosmeticsSearchByIDsRequestParams {
+export interface BRCosmeticsSearchByIDsRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -859,6 +1539,9 @@ export interface NewsResponseData extends FortniteAPIResponseData {
         tileImage: string;
         sortingPriority: number;
         hidden: boolean;
+        websiteUrl: string;
+        videoString: string;
+        videoId: string;
       }[];
       messages: {
         title: string;
@@ -880,6 +1563,9 @@ export interface NewsResponseData extends FortniteAPIResponseData {
         tileImage: string;
         sortingPriority: number;
         hidden: boolean;
+        websiteUrl: string;
+        videoString: string;
+        videoId: string;
       }[];
       messages: {
         title: string;
@@ -901,6 +1587,9 @@ export interface NewsResponseData extends FortniteAPIResponseData {
         tileImage: string;
         sortingPriority: number;
         hidden: boolean;
+        websiteUrl: string;
+        videoString: string;
+        videoId: string;
       }[];
       messages: {
         title: string;
@@ -938,6 +1627,9 @@ export interface BRNewsResponseData extends FortniteAPIResponseData {
       tileImage: string;
       sortingPriority: number;
       hidden: boolean;
+      websiteUrl: string;
+      videoString: string;
+      videoId: string;
     }[];
     messages: {
       title: string;
@@ -974,6 +1666,9 @@ export interface STWNewsResponseData extends FortniteAPIResponseData {
       tileImage: string;
       sortingPriority: number;
       hidden: boolean;
+      websiteUrl: string;
+      videoString: string;
+      videoId: string;
     }[];
     messages: {
       title: string;
@@ -1010,6 +1705,9 @@ export interface CreativeNewsResponseData extends FortniteAPIResponseData {
       tileImage: string;
       sortingPriority: number;
       hidden: boolean;
+      websiteUrl: string;
+      videoString: string;
+      videoId: string;
     }[];
     messages: {
       title: string;
@@ -1058,7 +1756,7 @@ export interface PlaylistsResponseData extends FortniteAPIResponseData {
     gameplayTags: string[];
     path: string;
     added: string;
-  }[];
+  };
 }
 
 export interface PlaylistsRequestParams {
@@ -1110,1109 +1808,275 @@ export interface PlaylistByIDRequestParams {
 }
 
 /* -----------------------------------------------------
-BR Shop
-GET https://fortnite-api.com/v2/shop/br
+Shop
+GET https://fortnite-api.com/v2/shop
 ----------------------------------------------------- */
 
-export interface BRShopResponseData extends FortniteAPIResponseData {
+export interface ShopResponseData extends FortniteAPIResponseData {
   data: {
     hash: string;
     date: string;
     vbuckIcon: string;
-    featured: {
-      name: string;
-      entries: {
-        regularPrice: number;
-        finalPrice: number;
-        bundle: {
-          name: string;
-          info: string;
-          image: string;
-        };
-        banner: {
+    entries: {
+      regularPrice: number;
+      finalPrice: number;
+      devName: string;
+      offerId: string;
+      inDate: string;
+      outDate: string;
+      bundle: {
+        name: string;
+        info: string;
+        image: string;
+      };
+      banner: {
+        value: string;
+        intensity: string;
+        backendValue: string;
+      };
+      offerTag: {
+        id: string;
+        text: string;
+      };
+      giftable: boolean;
+      refundable: boolean;
+      sortPriority: number;
+      layoutId: string;
+      layout: {
+        id: string;
+        name: string;
+        category: string;
+        index: number;
+        rank: number;
+        showIneligibleOffers: string;
+        background: string;
+        useWidePreview: boolean;
+        displayType: string;
+        textureMetadata: {
+          key: string;
           value: string;
-          intensity: string;
+        }[];
+        stringMetadata: {
+          key: string;
+          value: string;
+        }[];
+        textMetadata: {
+          key: string;
+          value: string;
+        }[];
+      };
+      colors: {
+        color1: string;
+        color2: string;
+        color3: string;
+        textBackgroundColor: string;
+      };
+      tileSize: string;
+      displayAssetPath: string;
+      newDisplayAssetPath: string;
+      newDisplayAsset: {
+        id: string;
+        cosmeticId: string;
+        materialInstances: {
+          id: string;
+          primaryMode: string;
+          productTag: string;
+          Images: any;
+          Colors: any;
+          Scalings: any;
+          Flags: any;
+        }[];
+        renderImages: {
+          productTag: string;
+          fileName: string;
+          image: string;
+        }[];
+      };
+      brItems: {
+        id: string;
+        name: string;
+        description: string;
+        exclusiveDescription: string;
+        unlockRequirements: string;
+        customExclusiveCallout: string;
+        type: {
+          value: string;
+          displayValue: string;
           backendValue: string;
         };
-        giftable: boolean;
-        refundable: boolean;
-        sortPriority: number;
-        categories: string[];
-        sectionId: string;
-        section: {
-          id: string;
-          name: string;
-          index: number;
-          landingPriority: number;
-          sortOffersByOwnership: boolean;
-          showIneligibleOffers: boolean;
-          showIneligibleOffersIfGiftable: boolean;
-          showTimer: boolean;
-          enableToastNotification: boolean;
-          hidden: boolean;
-        };
-        devName: string;
-        offerId: string;
-        displayAssetPath: string;
-        tileSize: string;
-        newDisplayAssetPath: string;
-        newDisplayAsset: {
-          id: string;
-          cosmeticId: string;
-          materialInstances: {
-            id: string;
-            Images: Record<string, string>;
-            Colors: Record<string, string>;
-            Scalings: Record<string, number>;
-            Flags: Record<string, boolean>;
-          }[];
-        };
-        items: {
-          id: string;
-          name: string;
-          description: string;
-          type: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          rarity: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          series: {
-            value: string;
-            image: string;
-            colors: string[];
-            backendValue: string;
-          };
-          set: {
-            value: string;
-            text: string;
-            backendValue: string;
-          };
-          introduction: {
-            chapter: string;
-            season: string;
-            text: string;
-            backendValue: number;
-          };
-          images: {
-            smallIcon: string;
-            icon: string;
-            featured: string;
-            Other: Record<string, string>;
-          };
-          variants: {
-            channel: string;
-            type: string;
-            options: {
-              tag: string;
-              name: string;
-              image: string;
-            }[];
-          }[];
-          searchTags: string[];
-          gameplayTags: string[];
-          metaTags: string[];
-          showcaseVideo: string;
-          dynamicPakId: string;
-          displayAssetPath: string;
-          definitionPath: string;
-          path: string;
-          added: string;
-          shopHistory: string[];
-        }[];
-      }[];
-    };
-    daily: {
-      name: string;
-      entries: {
-        regularPrice: number;
-        finalPrice: number;
-        bundle: {
-          name: string;
-          info: string;
-          image: string;
-        };
-        banner: {
+        rarity: {
           value: string;
-          intensity: string;
+          displayValue: string;
           backendValue: string;
         };
-        giftable: boolean;
-        refundable: boolean;
-        sortPriority: number;
-        categories: string[];
-        sectionId: string;
-        section: {
-          id: string;
-          name: string;
-          index: number;
-          landingPriority: number;
-          sortOffersByOwnership: boolean;
-          showIneligibleOffers: boolean;
-          showIneligibleOffersIfGiftable: boolean;
-          showTimer: boolean;
-          enableToastNotification: boolean;
-          hidden: boolean;
-        };
-        devName: string;
-        offerId: string;
-        displayAssetPath: string;
-        tileSize: string;
-        newDisplayAssetPath: string;
-        newDisplayAsset: {
-          id: string;
-          cosmeticId: string;
-          materialInstances: {
-            id: string;
-            Images: Record<string, string>;
-            Colors: Record<string, string>;
-            Scalings: Record<string, number>;
-            Flags: Record<string, boolean>;
-          }[];
-        };
-        items: {
-          id: string;
-          name: string;
-          description: string;
-          type: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          rarity: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          series: {
-            value: string;
-            image: string;
-            colors: string[];
-            backendValue: string;
-          };
-          set: {
-            value: string;
-            text: string;
-            backendValue: string;
-          };
-          introduction: {
-            chapter: string;
-            season: string;
-            text: string;
-            backendValue: number;
-          };
-          images: {
-            smallIcon: string;
-            icon: string;
-            featured: string;
-            Other: Record<string, string>;
-          };
-          variants: {
-            channel: string;
-            type: string;
-            options: {
-              tag: string;
-              name: string;
-              image: string;
-            }[];
-          }[];
-          searchTags: string[];
-          gameplayTags: string[];
-          metaTags: string[];
-          showcaseVideo: string;
-          dynamicPakId: string;
-          displayAssetPath: string;
-          definitionPath: string;
-          path: string;
-          added: string;
-          shopHistory: string[];
-        }[];
-      }[];
-    };
-    specialFeatured: {
-      name: string;
-      entries: {
-        regularPrice: number;
-        finalPrice: number;
-        bundle: {
-          name: string;
-          info: string;
-          image: string;
-        };
-        banner: {
+        series: {
           value: string;
-          intensity: string;
+          image: string;
+          colors: string[];
           backendValue: string;
         };
-        giftable: boolean;
-        refundable: boolean;
-        sortPriority: number;
-        categories: string[];
-        sectionId: string;
-        section: {
-          id: string;
-          name: string;
-          index: number;
-          landingPriority: number;
-          sortOffersByOwnership: boolean;
-          showIneligibleOffers: boolean;
-          showIneligibleOffersIfGiftable: boolean;
-          showTimer: boolean;
-          enableToastNotification: boolean;
-          hidden: boolean;
-        };
-        devName: string;
-        offerId: string;
-        displayAssetPath: string;
-        tileSize: string;
-        newDisplayAssetPath: string;
-        newDisplayAsset: {
-          id: string;
-          cosmeticId: string;
-          materialInstances: {
-            id: string;
-            Images: Record<string, string>;
-            Colors: Record<string, string>;
-            Scalings: Record<string, number>;
-            Flags: Record<string, boolean>;
-          }[];
-        };
-        items: {
-          id: string;
-          name: string;
-          description: string;
-          type: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          rarity: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          series: {
-            value: string;
-            image: string;
-            colors: string[];
-            backendValue: string;
-          };
-          set: {
-            value: string;
-            text: string;
-            backendValue: string;
-          };
-          introduction: {
-            chapter: string;
-            season: string;
-            text: string;
-            backendValue: number;
-          };
-          images: {
-            smallIcon: string;
-            icon: string;
-            featured: string;
-            Other: Record<string, string>;
-          };
-          variants: {
-            channel: string;
-            type: string;
-            options: {
-              tag: string;
-              name: string;
-              image: string;
-            }[];
-          }[];
-          searchTags: string[];
-          gameplayTags: string[];
-          metaTags: string[];
-          showcaseVideo: string;
-          dynamicPakId: string;
-          displayAssetPath: string;
-          definitionPath: string;
-          path: string;
-          added: string;
-          shopHistory: string[];
-        }[];
-      }[];
-    };
-    specialDaily: {
-      name: string;
-      entries: {
-        regularPrice: number;
-        finalPrice: number;
-        bundle: {
-          name: string;
-          info: string;
-          image: string;
-        };
-        banner: {
+        set: {
           value: string;
-          intensity: string;
+          text: string;
           backendValue: string;
         };
-        giftable: boolean;
-        refundable: boolean;
-        sortPriority: number;
-        categories: string[];
-        sectionId: string;
-        section: {
-          id: string;
-          name: string;
-          index: number;
-          landingPriority: number;
-          sortOffersByOwnership: boolean;
-          showIneligibleOffers: boolean;
-          showIneligibleOffersIfGiftable: boolean;
-          showTimer: boolean;
-          enableToastNotification: boolean;
-          hidden: boolean;
+        introduction: {
+          chapter: string;
+          season: string;
+          text: string;
+          backendValue: number;
         };
-        devName: string;
-        offerId: string;
-        displayAssetPath: string;
-        tileSize: string;
-        newDisplayAssetPath: string;
-        newDisplayAsset: {
-          id: string;
-          cosmeticId: string;
-          materialInstances: {
-            id: string;
-            Images: Record<string, string>;
-            Colors: Record<string, string>;
-            Scalings: Record<string, number>;
-            Flags: Record<string, boolean>;
-          }[];
+        images: {
+          smallIcon: string;
+          icon: string;
+          featured: string;
+          lego: {
+            small: string;
+            large: string;
+            wide: string;
+          };
+          bean: {
+            small: string;
+            large: string;
+          };
+          Other: any;
         };
-        items: {
-          id: string;
-          name: string;
-          description: string;
-          type: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          rarity: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          series: {
-            value: string;
+        variants: {
+          channel: string;
+          type: string;
+          options: {
+            tag: string;
+            name: string;
+            unlockRequirements: string;
             image: string;
-            colors: string[];
-            backendValue: string;
-          };
-          set: {
-            value: string;
-            text: string;
-            backendValue: string;
-          };
-          introduction: {
-            chapter: string;
-            season: string;
-            text: string;
-            backendValue: number;
-          };
-          images: {
-            smallIcon: string;
-            icon: string;
-            featured: string;
-            Other: Record<string, string>;
-          };
-          variants: {
-            channel: string;
-            type: string;
-            options: {
-              tag: string;
-              name: string;
-              image: string;
-            }[];
           }[];
-          searchTags: string[];
-          gameplayTags: string[];
-          metaTags: string[];
-          showcaseVideo: string;
-          dynamicPakId: string;
-          displayAssetPath: string;
-          definitionPath: string;
-          path: string;
-          added: string;
-          shopHistory: string[];
         }[];
+        builtInEmoteIds: string[];
+        searchTags: string[];
+        gameplayTags: string[];
+        metaTags: string[];
+        showcaseVideo: string;
+        dynamicPakId: string;
+        itemPreviewHeroPath: string;
+        displayAssetPath: string;
+        definitionPath: string;
+        path: string;
+        added: string;
+        shopHistory: string[];
       }[];
-    };
-    votes: {
-      name: string;
-      entries: {
-        regularPrice: number;
-        finalPrice: number;
-        bundle: {
-          name: string;
-          info: string;
-          image: string;
+      tracks: {
+        id: string;
+        devName: string;
+        title: string;
+        artist: string;
+        album: string;
+        releaseYear: number;
+        bpm: number;
+        duration: number;
+        difficulty: {
+          vocals: number;
+          guitar: number;
+          bass: number;
+          plasticBass: number;
+          drums: number;
+          plasticDrums: number;
         };
-        banner: {
+        gameplayTags: string[];
+        genres: string[];
+        albumArt: string;
+        added: string;
+        shopHistory: string[];
+      }[];
+      instruments: {
+        id: string;
+        name: string;
+        description: string;
+        type: {
           value: string;
-          intensity: string;
+          displayValue: string;
           backendValue: string;
         };
-        giftable: boolean;
-        refundable: boolean;
-        sortPriority: number;
-        categories: string[];
-        sectionId: string;
-        section: {
-          id: string;
-          name: string;
-          index: number;
-          landingPriority: number;
-          sortOffersByOwnership: boolean;
-          showIneligibleOffers: boolean;
-          showIneligibleOffersIfGiftable: boolean;
-          showTimer: boolean;
-          enableToastNotification: boolean;
-          hidden: boolean;
-        };
-        devName: string;
-        offerId: string;
-        displayAssetPath: string;
-        tileSize: string;
-        newDisplayAssetPath: string;
-        newDisplayAsset: {
-          id: string;
-          cosmeticId: string;
-          materialInstances: {
-            id: string;
-            Images: Record<string, string>;
-            Colors: Record<string, string>;
-            Scalings: Record<string, number>;
-            Flags: Record<string, boolean>;
-          }[];
-        };
-        items: {
-          id: string;
-          name: string;
-          description: string;
-          type: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          rarity: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          series: {
-            value: string;
-            image: string;
-            colors: string[];
-            backendValue: string;
-          };
-          set: {
-            value: string;
-            text: string;
-            backendValue: string;
-          };
-          introduction: {
-            chapter: string;
-            season: string;
-            text: string;
-            backendValue: number;
-          };
-          images: {
-            smallIcon: string;
-            icon: string;
-            featured: string;
-            Other: Record<string, string>;
-          };
-          variants: {
-            channel: string;
-            type: string;
-            options: {
-              tag: string;
-              name: string;
-              image: string;
-            }[];
-          }[];
-          searchTags: string[];
-          gameplayTags: string[];
-          metaTags: string[];
-          showcaseVideo: string;
-          dynamicPakId: string;
-          displayAssetPath: string;
-          definitionPath: string;
-          path: string;
-          added: string;
-          shopHistory: string[];
-        }[];
-      }[];
-    };
-    voteWinners: {
-      name: string;
-      entries: {
-        regularPrice: number;
-        finalPrice: number;
-        bundle: {
-          name: string;
-          info: string;
-          image: string;
-        };
-        banner: {
+        rarity: {
           value: string;
-          intensity: string;
+          displayValue: string;
           backendValue: string;
         };
-        giftable: boolean;
-        refundable: boolean;
-        sortPriority: number;
-        categories: string[];
-        sectionId: string;
-        section: {
-          id: string;
-          name: string;
-          index: number;
-          landingPriority: number;
-          sortOffersByOwnership: boolean;
-          showIneligibleOffers: boolean;
-          showIneligibleOffersIfGiftable: boolean;
-          showTimer: boolean;
-          enableToastNotification: boolean;
-          hidden: boolean;
+        images: {
+          small: string;
+          large: string;
         };
-        devName: string;
-        offerId: string;
-        displayAssetPath: string;
-        tileSize: string;
-        newDisplayAssetPath: string;
-        newDisplayAsset: {
-          id: string;
-          cosmeticId: string;
-          materialInstances: {
-            id: string;
-            Images: Record<string, string>;
-            Colors: Record<string, string>;
-            Scalings: Record<string, number>;
-            Flags: Record<string, boolean>;
-          }[];
+        series: {
+          value: string;
+          image: string;
+          colors: string[];
+          backendValue: string;
         };
-        items: {
-          id: string;
-          name: string;
-          description: string;
-          type: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          rarity: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          series: {
-            value: string;
-            image: string;
-            colors: string[];
-            backendValue: string;
-          };
-          set: {
-            value: string;
-            text: string;
-            backendValue: string;
-          };
-          introduction: {
-            chapter: string;
-            season: string;
-            text: string;
-            backendValue: number;
-          };
-          images: {
-            smallIcon: string;
-            icon: string;
-            featured: string;
-            Other: Record<string, string>;
-          };
-          variants: {
-            channel: string;
-            type: string;
-            options: {
-              tag: string;
-              name: string;
-              image: string;
-            }[];
-          }[];
-          searchTags: string[];
-          gameplayTags: string[];
-          metaTags: string[];
-          showcaseVideo: string;
-          dynamicPakId: string;
-          displayAssetPath: string;
-          definitionPath: string;
-          path: string;
-          added: string;
-          shopHistory: string[];
-        }[];
+        gameplayTags: string[];
+        path: string;
+        showcaseVideo: string;
+        added: string;
+        shopHistory: string[];
       }[];
-    };
+      cars: {
+        id: string;
+        vehicleId: string;
+        name: string;
+        description: string;
+        type: {
+          value: string;
+          displayValue: string;
+          backendValue: string;
+        };
+        rarity: {
+          value: string;
+          displayValue: string;
+          backendValue: string;
+        };
+        images: {
+          small: string;
+          large: string;
+        };
+        series: {
+          value: string;
+          image: string;
+          colors: string[];
+          backendValue: string;
+        };
+        gameplayTags: string[];
+        path: string;
+        showcaseVideo: string;
+        added: string;
+        shopHistory: string[];
+      }[];
+      legoKits: {
+        id: string;
+        name: string;
+        type: {
+          value: string;
+          displayValue: string;
+          backendValue: string;
+        };
+        series: {
+          value: string;
+          image: string;
+          colors: string[];
+          backendValue: string;
+        };
+        gameplayTags: string[];
+        images: {
+          small: string;
+          large: string;
+          wide: string;
+        };
+        path: string;
+        added: string;
+        shopHistory: string[];
+      }[];
+    }[];
   };
 }
 
-export interface BRShopRequestParams {
-  /**
-   * Sets the output language. Defaults to `en`
-   */
-  language?: string;
-}
-
-/* -----------------------------------------------------
-BR Shop Combined
-GET https://fortnite-api.com/v2/shop/br/combined
------------------------------------------------------ */
-
-export interface BRShopCombinedResponseData extends FortniteAPIResponseData {
-  data: {
-    hash: string;
-    date: string;
-    vbuckIcon: string;
-    featured: {
-      name: string;
-      entries: {
-        regularPrice: number;
-        finalPrice: number;
-        bundle: {
-          name: string;
-          info: string;
-          image: string;
-        };
-        banner: {
-          value: string;
-          intensity: string;
-          backendValue: string;
-        };
-        giftable: boolean;
-        refundable: boolean;
-        sortPriority: number;
-        categories: string[];
-        sectionId: string;
-        section: {
-          id: string;
-          name: string;
-          index: number;
-          landingPriority: number;
-          sortOffersByOwnership: boolean;
-          showIneligibleOffers: boolean;
-          showIneligibleOffersIfGiftable: boolean;
-          showTimer: boolean;
-          enableToastNotification: boolean;
-          hidden: boolean;
-        };
-        devName: string;
-        offerId: string;
-        displayAssetPath: string;
-        tileSize: string;
-        newDisplayAssetPath: string;
-        newDisplayAsset: {
-          id: string;
-          cosmeticId: string;
-          materialInstances: {
-            id: string;
-            Images: Record<string, string>;
-            Colors: Record<string, string>;
-            Scalings: Record<string, number>;
-            Flags: Record<string, boolean>;
-          }[];
-        };
-        items: {
-          id: string;
-          name: string;
-          description: string;
-          type: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          rarity: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          series: {
-            value: string;
-            image: string;
-            colors: string[];
-            backendValue: string;
-          };
-          set: {
-            value: string;
-            text: string;
-            backendValue: string;
-          };
-          introduction: {
-            chapter: string;
-            season: string;
-            text: string;
-            backendValue: number;
-          };
-          images: {
-            smallIcon: string;
-            icon: string;
-            featured: string;
-            Other: Record<string, string>;
-          };
-          variants: {
-            channel: string;
-            type: string;
-            options: {
-              tag: string;
-              name: string;
-              image: string;
-            }[];
-          }[];
-          searchTags: string[];
-          gameplayTags: string[];
-          metaTags: string[];
-          showcaseVideo: string;
-          dynamicPakId: string;
-          displayAssetPath: string;
-          definitionPath: string;
-          path: string;
-          added: string;
-          shopHistory: string[];
-        }[];
-      }[];
-    };
-    daily: {
-      name: string;
-      entries: {
-        regularPrice: number;
-        finalPrice: number;
-        bundle: {
-          name: string;
-          info: string;
-          image: string;
-        };
-        banner: {
-          value: string;
-          intensity: string;
-          backendValue: string;
-        };
-        giftable: boolean;
-        refundable: boolean;
-        sortPriority: number;
-        categories: string[];
-        sectionId: string;
-        section: {
-          id: string;
-          name: string;
-          index: number;
-          landingPriority: number;
-          sortOffersByOwnership: boolean;
-          showIneligibleOffers: boolean;
-          showIneligibleOffersIfGiftable: boolean;
-          showTimer: boolean;
-          enableToastNotification: boolean;
-          hidden: boolean;
-        };
-        devName: string;
-        offerId: string;
-        displayAssetPath: string;
-        tileSize: string;
-        newDisplayAssetPath: string;
-        newDisplayAsset: {
-          id: string;
-          cosmeticId: string;
-          materialInstances: {
-            id: string;
-            Images: Record<string, string>;
-            Colors: Record<string, string>;
-            Scalings: Record<string, number>;
-            Flags: Record<string, boolean>;
-          }[];
-        };
-        items: {
-          id: string;
-          name: string;
-          description: string;
-          type: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          rarity: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          series: {
-            value: string;
-            image: string;
-            colors: string[];
-            backendValue: string;
-          };
-          set: {
-            value: string;
-            text: string;
-            backendValue: string;
-          };
-          introduction: {
-            chapter: string;
-            season: string;
-            text: string;
-            backendValue: number;
-          };
-          images: {
-            smallIcon: string;
-            icon: string;
-            featured: string;
-            Other: Record<string, string>;
-          };
-          variants: {
-            channel: string;
-            type: string;
-            options: {
-              tag: string;
-              name: string;
-              image: string;
-            }[];
-          }[];
-          searchTags: string[];
-          gameplayTags: string[];
-          metaTags: string[];
-          showcaseVideo: string;
-          dynamicPakId: string;
-          displayAssetPath: string;
-          definitionPath: string;
-          path: string;
-          added: string;
-          shopHistory: string[];
-        }[];
-      }[];
-    };
-    votes: {
-      name: string;
-      entries: {
-        regularPrice: number;
-        finalPrice: number;
-        bundle: {
-          name: string;
-          info: string;
-          image: string;
-        };
-        banner: {
-          value: string;
-          intensity: string;
-          backendValue: string;
-        };
-        giftable: boolean;
-        refundable: boolean;
-        sortPriority: number;
-        categories: string[];
-        sectionId: string;
-        section: {
-          id: string;
-          name: string;
-          index: number;
-          landingPriority: number;
-          sortOffersByOwnership: boolean;
-          showIneligibleOffers: boolean;
-          showIneligibleOffersIfGiftable: boolean;
-          showTimer: boolean;
-          enableToastNotification: boolean;
-          hidden: boolean;
-        };
-        devName: string;
-        offerId: string;
-        displayAssetPath: string;
-        tileSize: string;
-        newDisplayAssetPath: string;
-        newDisplayAsset: {
-          id: string;
-          cosmeticId: string;
-          materialInstances: {
-            id: string;
-            Images: Record<string, string>;
-            Colors: Record<string, string>;
-            Scalings: Record<string, number>;
-            Flags: Record<string, boolean>;
-          }[];
-        };
-        items: {
-          id: string;
-          name: string;
-          description: string;
-          type: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          rarity: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          series: {
-            value: string;
-            image: string;
-            colors: string[];
-            backendValue: string;
-          };
-          set: {
-            value: string;
-            text: string;
-            backendValue: string;
-          };
-          introduction: {
-            chapter: string;
-            season: string;
-            text: string;
-            backendValue: number;
-          };
-          images: {
-            smallIcon: string;
-            icon: string;
-            featured: string;
-            Other: Record<string, string>;
-          };
-          variants: {
-            channel: string;
-            type: string;
-            options: {
-              tag: string;
-              name: string;
-              image: string;
-            }[];
-          }[];
-          searchTags: string[];
-          gameplayTags: string[];
-          metaTags: string[];
-          showcaseVideo: string;
-          dynamicPakId: string;
-          displayAssetPath: string;
-          definitionPath: string;
-          path: string;
-          added: string;
-          shopHistory: string[];
-        }[];
-      }[];
-    };
-    voteWinners: {
-      name: string;
-      entries: {
-        regularPrice: number;
-        finalPrice: number;
-        bundle: {
-          name: string;
-          info: string;
-          image: string;
-        };
-        banner: {
-          value: string;
-          intensity: string;
-          backendValue: string;
-        };
-        giftable: boolean;
-        refundable: boolean;
-        sortPriority: number;
-        categories: string[];
-        sectionId: string;
-        section: {
-          id: string;
-          name: string;
-          index: number;
-          landingPriority: number;
-          sortOffersByOwnership: boolean;
-          showIneligibleOffers: boolean;
-          showIneligibleOffersIfGiftable: boolean;
-          showTimer: boolean;
-          enableToastNotification: boolean;
-          hidden: boolean;
-        };
-        devName: string;
-        offerId: string;
-        displayAssetPath: string;
-        tileSize: string;
-        newDisplayAssetPath: string;
-        newDisplayAsset: {
-          id: string;
-          cosmeticId: string;
-          materialInstances: {
-            id: string;
-            Images: Record<string, string>;
-            Colors: Record<string, string>;
-            Scalings: Record<string, number>;
-            Flags: Record<string, boolean>;
-          }[];
-        };
-        items: {
-          id: string;
-          name: string;
-          description: string;
-          type: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          rarity: {
-            value: string;
-            displayValue: string;
-            backendValue: string;
-          };
-          series: {
-            value: string;
-            image: string;
-            colors: string[];
-            backendValue: string;
-          };
-          set: {
-            value: string;
-            text: string;
-            backendValue: string;
-          };
-          introduction: {
-            chapter: string;
-            season: string;
-            text: string;
-            backendValue: number;
-          };
-          images: {
-            smallIcon: string;
-            icon: string;
-            featured: string;
-            Other: Record<string, string>;
-          };
-          variants: {
-            channel: string;
-            type: string;
-            options: {
-              tag: string;
-              name: string;
-              image: string;
-            }[];
-          }[];
-          searchTags: string[];
-          gameplayTags: string[];
-          metaTags: string[];
-          showcaseVideo: string;
-          dynamicPakId: string;
-          displayAssetPath: string;
-          definitionPath: string;
-          path: string;
-          added: string;
-          shopHistory: string[];
-        }[];
-      }[];
-    };
-  };
-}
-
-export interface BRShopCombinedRequestParams {
+export interface ShopRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */

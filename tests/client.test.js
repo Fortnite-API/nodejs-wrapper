@@ -61,13 +61,6 @@ describe('Client Methods (Without API Key)', () => {
     expect(response.data).toBeDefined();
   });
 
-  it('Runs Client#newCosmetics()', async () => {
-    const response = await client.newCosmetics();
-
-    expect(response.status).toBe(200);
-    expect(response.data).toBeDefined();
-  });
-
   it('Runs Client#cosmeticsByID()', async () => {
     const response = await client.cosmeticsByID({ id: 'CID_022_Athena_Commando_F' });
 
