@@ -7,7 +7,7 @@ jobs:
 
     strategy:
       matrix:
-        node: ["12", "16"]
+        node: ["18", "22"]
       fail-fast: false
 
     steps:
@@ -23,7 +23,7 @@ jobs:
         run: "npm ci"
 
       - name: "Lint Code"
-        if: ${{ matrix.node == '16' }}
+        if: ${{ matrix.node == '18' }}
         run: "npx eslint -f .github/workflows/formatter.js src/**/*.ts || :"
 
       - name: "Compile Code"

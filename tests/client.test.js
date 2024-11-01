@@ -54,36 +54,85 @@ describe('Client Methods (Without API Key)', () => {
     expect(response.data).toBeDefined();
   });
 
-  it('Runs Client#cosmeticsList()', async () => {
-    const response = await client.cosmeticsList();
+  it('Runs Client#allCosmetics()', async () => {
+    const response = await client.allCosmetics();
 
     expect(response.status).toBe(200);
     expect(response.data).toBeDefined();
   });
 
-  it('Runs Client#cosmeticsByID()', async () => {
-    const response = await client.cosmeticsByID({ id: 'CID_022_Athena_Commando_F' });
+  it('Runs Client#brCosmeticsList()', async () => {
+    const response = await client.brCosmeticsList();
 
     expect(response.status).toBe(200);
     expect(response.data).toBeDefined();
   });
 
-  it('Runs Client#cosmeticsSearch()', async () => {
-    const response = await client.cosmeticsSearch({ name: 'Recon', matchMethod: 'starts' });
+  it('Runs Client#trackCosmeticsList()', async () => {
+    const response = await client.trackCosmeticsList();
 
     expect(response.status).toBe(200);
     expect(response.data).toBeDefined();
   });
 
-  it('Runs Client#cosmeticsSearchAll()', async () => {
-    const response = await client.cosmeticsSearchAll({ name: 'Recon', matchMethod: 'starts' });
+  it('Runs Client#instrumentCosmeticsList()', async () => {
+    const response = await client.instrumentCosmeticsList();
 
     expect(response.status).toBe(200);
     expect(response.data).toBeDefined();
   });
 
-  it('Runs Client#cosmeticsSearchByIDs()', async () => {
-    const response = await client.cosmeticsSearchByIDs({ id: ['CID_022_Athena_Commando_F', 'CID_242_Athena_Commando_F_Bullseye'] });
+  it('Runs Client#carCosmeticsList()', async () => {
+    const response = await client.carCosmeticsList();
+
+    expect(response.status).toBe(200);
+    expect(response.data).toBeDefined();
+  });
+
+  it('Runs Client#legoCosmeticsList()', async () => {
+    const response = await client.legoCosmeticsList();
+
+    expect(response.status).toBe(200);
+    expect(response.data).toBeDefined();
+  });
+
+  it('Runs Client#legoKitCosmeticsList()', async () => {
+    const response = await client.legoKitCosmeticsList();
+
+    expect(response.status).toBe(200);
+    expect(response.data).toBeDefined();
+  });
+
+  it('Runs Client#beanCosmeticsList()', async () => {
+    const response = await client.beanCosmeticsList();
+
+    expect(response.status).toBe(200);
+    expect(response.data).toBeDefined();
+  });
+
+  it('Runs Client#brCosmeticByID()', async () => {
+    const response = await client.brCosmeticByID('CID_022_Athena_Commando_F');
+
+    expect(response.status).toBe(200);
+    expect(response.data).toBeDefined();
+  });
+
+  it('Runs Client#brCosmeticSearch()', async () => {
+    const response = await client.brCosmeticSearch({ name: 'Recon', matchMethod: 'starts' });
+
+    expect(response.status).toBe(200);
+    expect(response.data).toBeDefined();
+  });
+
+  it('Runs Client#brCosmeticsSearch()', async () => {
+    const response = await client.brCosmeticsSearch({ name: 'Recon', matchMethod: 'starts' });
+
+    expect(response.status).toBe(200);
+    expect(response.data).toBeDefined();
+  });
+
+  it('Runs Client#brCosmeticsSearchByIDs()', async () => {
+    const response = await client.brCosmeticsSearchByIDs({ id: ['CID_022_Athena_Commando_F', 'CID_242_Athena_Commando_F_Bullseye'] });
 
     expect(response.status).toBe(200);
     expect(response.data).toBeDefined();
@@ -118,21 +167,14 @@ describe('Client Methods (Without API Key)', () => {
   });
 
   it('Runs Client#playlistById()', async () => {
-    const response = await client.playlistById({ id: 'Playlist_DefaultSolo' });
+    const response = await client.playlistByID('Playlist_DefaultSolo');
 
     expect(response.status).toBe(200);
     expect(response.data).toBeDefined();
   });
 
-  it('Runs Client#brShop()', async () => {
-    const response = await client.brShop();
-
-    expect(response.status).toBe(200);
-    expect(response.data).toBeDefined();
-  });
-
-  it('Runs Client#brShopCombined()', async () => {
-    const response = await client.brShopCombined();
+  it('Runs Client#shop()', async () => {
+    const response = await client.shop();
 
     expect(response.status).toBe(200);
     expect(response.data).toBeDefined();
