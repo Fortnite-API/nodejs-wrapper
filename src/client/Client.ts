@@ -38,7 +38,7 @@ class Client {
    * Returns the current aes key
    * @param options Options for this endpoint
    */
-  public async aesKeys(options: AESKeysRequestParams): Promise<AESKeysResponseData> {
+  public async aesKeys(options?: AESKeysRequestParams): Promise<AESKeysResponseData> {
     return this.http.fetch('/v2/aes', options);
   }
 
@@ -46,7 +46,7 @@ class Client {
    * Returns an array of all banners
    * @param options Options for this endpoint
    */
-  public async banners(options: BannersRequestParams): Promise<BannersResponseData> {
+  public async banners(options?: BannersRequestParams): Promise<BannersResponseData> {
     return this.http.fetch('/v1/banners', options);
   }
 
@@ -54,7 +54,7 @@ class Client {
    * Returns an array of all banner colors
    * @param options Options for this endpoint
    */
-  public async bannerColors(options: BannerColorsRequestParams): Promise<BannerColorsResponseData> {
+  public async bannerColors(options?: BannerColorsRequestParams): Promise<BannerColorsResponseData> {
     return this.http.fetch('/v1/banners/colors', options);
   }
 
@@ -62,7 +62,7 @@ class Client {
    * Returns data of all cosmetics
    * @param options Options for this endpoint
    */
-  public async allCosmetics(options: AllCosmeticsRequestParams): Promise<AllCosmeticsResponseData> {
+  public async allCosmetics(options?: AllCosmeticsRequestParams): Promise<AllCosmeticsResponseData> {
     return this.http.fetch('/v2/cosmetics', options);
   }
 
@@ -70,7 +70,7 @@ class Client {
    * Returns data of the latest added cosmetics
    * @param options Options for this endpoint
    */
-  public async newCosmetics(options: NewCosmeticsRequestParams): Promise<NewCosmeticsResponseData> {
+  public async newCosmetics(options?: NewCosmeticsRequestParams): Promise<NewCosmeticsResponseData> {
     return this.http.fetch('/v2/cosmetics/new', options);
   }
 
@@ -78,7 +78,7 @@ class Client {
    * Returns data of all battle royale cosmetics
    * @param options Options for this endpoint
    */
-  public async brCosmeticsList(options: BRCosmeticsListRequestParams): Promise<BRCosmeticsListResponseData> {
+  public async brCosmeticsList(options?: BRCosmeticsListRequestParams): Promise<BRCosmeticsListResponseData> {
     return this.http.fetch('/v2/cosmetics/br', options);
   }
 
@@ -86,7 +86,7 @@ class Client {
    * Returns data of all track cosmetics
    * @param options Options for this endpoint
    */
-  public async trackCosmeticsList(options: TrackCosmeticsListRequestParams): Promise<TrackCosmeticsListResponseData> {
+  public async trackCosmeticsList(options?: TrackCosmeticsListRequestParams): Promise<TrackCosmeticsListResponseData> {
     return this.http.fetch('/v2/cosmetics/tracks', options);
   }
 
@@ -94,7 +94,7 @@ class Client {
    * Returns data of all instrument cosmetics
    * @param options Options for this endpoint
    */
-  public async instrumentCosmeticsList(options: InstrumentCosmeticsListRequestParams): Promise<InstrumentCosmeticsListResponseData> {
+  public async instrumentCosmeticsList(options?: InstrumentCosmeticsListRequestParams): Promise<InstrumentCosmeticsListResponseData> {
     return this.http.fetch('/v2/cosmetics/instruments', options);
   }
 
@@ -102,7 +102,7 @@ class Client {
    * Returns data of all car cosmetics
    * @param options Options for this endpoint
    */
-  public async carCosmeticsList(options: CarCosmeticsListRequestParams): Promise<CarCosmeticsListResponseData> {
+  public async carCosmeticsList(options?: CarCosmeticsListRequestParams): Promise<CarCosmeticsListResponseData> {
     return this.http.fetch('/v2/cosmetics/cars', options);
   }
 
@@ -110,7 +110,7 @@ class Client {
    * Returns data of all lego cosmetics
    * @param options Options for this endpoint
    */
-  public async legoCosmeticsList(options: LegoCosmeticsListRequestParams): Promise<LegoCosmeticsListResponseData> {
+  public async legoCosmeticsList(options?: LegoCosmeticsListRequestParams): Promise<LegoCosmeticsListResponseData> {
     return this.http.fetch('/v2/cosmetics/lego', options);
   }
 
@@ -118,7 +118,7 @@ class Client {
    * Returns data of all lego kit cosmetics
    * @param options Options for this endpoint
    */
-  public async legoKitCosmeticsList(options: LegoKitCosmeticsListRequestParams): Promise<LegoKitCosmeticsListResponseData> {
+  public async legoKitCosmeticsList(options?: LegoKitCosmeticsListRequestParams): Promise<LegoKitCosmeticsListResponseData> {
     return this.http.fetch('/v2/cosmetics/lego/kits', options);
   }
 
@@ -126,7 +126,7 @@ class Client {
    * Returns data of all bean aka fall guys cosmetics
    * @param options Options for this endpoint
    */
-  public async beanCosmeticsList(options: BeanCosmeticsListRequestParams): Promise<BeanCosmeticsListResponseData> {
+  public async beanCosmeticsList(options?: BeanCosmeticsListRequestParams): Promise<BeanCosmeticsListResponseData> {
     return this.http.fetch('/v2/cosmetics/beans', options);
   }
 
@@ -134,7 +134,7 @@ class Client {
    * Returns data of the requested battle royale cosmetic-id
    * @param options Options for this endpoint
    */
-  public async brCosmeticByID(cosmeticId: string, options: BRCosmeticByIDRequestParams): Promise<BRCosmeticByIDResponseData> {
+  public async brCosmeticByID(cosmeticId: string, options?: BRCosmeticByIDRequestParams): Promise<BRCosmeticByIDResponseData> {
     return this.http.fetch(`/v2/cosmetics/br/${cosmeticId}`, options);
   }
 
@@ -142,7 +142,7 @@ class Client {
    * Returns data of the first battle royale cosmetic which matches the search parameter(s)
    * @param options Options for this endpoint
    */
-  public async brCosmeticSearch(options: BRCosmeticSearchRequestParams): Promise<BRCosmeticSearchResponseData> {
+  public async brCosmeticSearch(options?: BRCosmeticSearchRequestParams): Promise<BRCosmeticSearchResponseData> {
     return this.http.fetch('/v2/cosmetics/br/search', options);
   }
 
@@ -150,7 +150,7 @@ class Client {
    * Returns an array of all battle royale cosmetics which match the search parameter(s)
    * @param options Options for this endpoint
    */
-  public async brCosmeticsSearch(options: BRCosmeticsSearchRequestParams): Promise<BRCosmeticsSearchResponseData> {
+  public async brCosmeticsSearch(options?: BRCosmeticsSearchRequestParams): Promise<BRCosmeticsSearchResponseData> {
     return this.http.fetch('/v2/cosmetics/br/search/all', options);
   }
 
@@ -158,7 +158,7 @@ class Client {
    * Returns an array of the requested battle royale cosmetic ids
    * @param options Options for this endpoint
    */
-  public async brCosmeticsSearchByIDs(options: BRCosmeticsSearchByIDsRequestParams): Promise<BRCosmeticsSearchByIDsResponseData> {
+  public async brCosmeticsSearchByIDs(options?: BRCosmeticsSearchByIDsRequestParams): Promise<BRCosmeticsSearchByIDsResponseData> {
     return this.http.fetch('/v2/cosmetics/br/search/ids', options);
   }
 
@@ -166,7 +166,7 @@ class Client {
    * Returns data of a creator code by its name
    * @param options Options for this endpoint
    */
-  public async creatorCode(options: CreatorCodeRequestParams): Promise<CreatorCodeResponseData> {
+  public async creatorCode(options?: CreatorCodeRequestParams): Promise<CreatorCodeResponseData> {
     return this.http.fetch('/v2/creatorcode', options);
   }
 
@@ -174,7 +174,7 @@ class Client {
    * Returns data & images of the BR map & POIs
    * @param options Options for this endpoint
    */
-  public async brMap(options: BRMapRequestParams): Promise<BRMapResponseData> {
+  public async brMap(options?: BRMapRequestParams): Promise<BRMapResponseData> {
     return this.http.fetch('/v1/map', options);
   }
 
@@ -182,7 +182,7 @@ class Client {
    * Returns data of the current battle royale, save the world & creative news
    * @param options Options for this endpoint
    */
-  public async news(options: NewsRequestParams): Promise<NewsResponseData> {
+  public async news(options?: NewsRequestParams): Promise<NewsResponseData> {
     return this.http.fetch('/v2/news', options);
   }
 
@@ -190,7 +190,7 @@ class Client {
    * Returns data of the current battle royale news
    * @param options Options for this endpoint
    */
-  public async brNews(options: BRNewsRequestParams): Promise<BRNewsResponseData> {
+  public async brNews(options?: BRNewsRequestParams): Promise<BRNewsResponseData> {
     return this.http.fetch('/v2/news/br', options);
   }
 
@@ -198,7 +198,7 @@ class Client {
    * Returns data of the current save the world news
    * @param options Options for this endpoint
    */
-  public async stwNews(options: STWNewsRequestParams): Promise<STWNewsResponseData> {
+  public async stwNews(options?: STWNewsRequestParams): Promise<STWNewsResponseData> {
     return this.http.fetch('/v2/news/stw', options);
   }
 
@@ -206,7 +206,7 @@ class Client {
    * Returns data of the current creative news
    * @param options Options for this endpoint
    */
-  public async creativeNews(options: CreativeNewsRequestParams): Promise<CreativeNewsResponseData> {
+  public async creativeNews(options?: CreativeNewsRequestParams): Promise<CreativeNewsResponseData> {
     return this.http.fetch('/v2/news/creative', options);
   }
 
@@ -214,7 +214,7 @@ class Client {
    * Returns an array of all playlists
    * @param options Options for this endpoint
    */
-  public async playlists(options: PlaylistsRequestParams): Promise<PlaylistsResponseData> {
+  public async playlists(options?: PlaylistsRequestParams): Promise<PlaylistsResponseData> {
     return this.http.fetch('/v1/playlists', options);
   }
 
@@ -222,7 +222,7 @@ class Client {
    * Returns data of the requested playlist-id
    * @param options Options for this endpoint
    */
-  public async playlistByID(playlistId: string, options: PlaylistByIDRequestParams): Promise<PlaylistByIDResponseData> {
+  public async playlistByID(playlistId: string, options?: PlaylistByIDRequestParams): Promise<PlaylistByIDResponseData> {
     return this.http.fetch(`/v1/playlists/${playlistId}`, options);
   }
 
@@ -230,7 +230,7 @@ class Client {
    * Returns data of the current shop
    * @param options Options for this endpoint
    */
-  public async shop(options: ShopRequestParams): Promise<ShopResponseData> {
+  public async shop(options?: ShopRequestParams): Promise<ShopResponseData> {
     return this.http.fetch('/v2/shop', options);
   }
 
@@ -239,7 +239,7 @@ class Client {
    * Note: trios stats will always be null
    * @param options Options for this endpoint
    */
-  public async brStats(options: BRStatsRequestParams): Promise<BRStatsResponseData> {
+  public async brStats(options?: BRStatsRequestParams): Promise<BRStatsResponseData> {
     return this.http.fetchStats('/v2/stats/br/v2', options);
   }
 
@@ -248,7 +248,7 @@ class Client {
    * Note: trios stats will always be null
    * @param options Options for this endpoint
    */
-  public async brStatsByAccountID(accountId: string, options: BRStatsByAccountIDRequestParams): Promise<BRStatsByAccountIDResponseData> {
+  public async brStatsByAccountID(accountId: string, options?: BRStatsByAccountIDRequestParams): Promise<BRStatsByAccountIDResponseData> {
     return this.http.fetchStats(`/v2/stats/br/v2/${accountId}`, options);
   }
 }

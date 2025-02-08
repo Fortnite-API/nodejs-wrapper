@@ -1,3 +1,4 @@
+/* eslint-disable no-bitwise */
 /* eslint-disable no-unused-vars, import/prefer-default-export, no-shadow */
 export enum Language {
   Arabic = 'ar',
@@ -15,4 +16,11 @@ export enum Language {
   Turkish = 'tr',
   Chinese = 'zh-CN',
   MandarinChinese = 'zh-Hant'
+}
+
+export enum ResponseFlags {
+  None = 0,
+  IncludePaths = 1 << 0,
+  IncludeGameplayTags = 1 << 1,
+  IncludeShopHistory = 1 << 2,
 }

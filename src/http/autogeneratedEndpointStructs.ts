@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars, no-shadow */
-import { FortniteAPIResponseData } from './httpStructs';
+import { FortniteAPIResponseData, FortniteAPIRequestParams } from './httpStructs';
 
-// Auto-generated at 2024-11-01T16:41:06.158Z
+// Auto-generated at 2025-02-08T18:31:38.942Z
 
 /* -----------------------------------------------------
 AES Keys
@@ -21,7 +21,7 @@ export interface AESKeysResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface AESKeysRequestParams {
+export interface AESKeysRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the aes key format. Defaults to `hex`
    */
@@ -45,10 +45,10 @@ export interface BannersResponseData extends FortniteAPIResponseData {
       smallIcon: string;
       icon: string;
     };
-  };
+  }[];
 }
 
-export interface BannersRequestParams {
+export interface BannersRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -66,10 +66,10 @@ export interface BannerColorsResponseData extends FortniteAPIResponseData {
     color: string;
     category: string;
     subCategoryGroup: number;
-  };
+  }[];
 }
 
-export interface BannerColorsRequestParams {}
+export interface BannerColorsRequestParams extends FortniteAPIRequestParams {}
 
 /* -----------------------------------------------------
 All Cosmetics
@@ -286,7 +286,7 @@ export interface AllCosmeticsResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface AllCosmeticsRequestParams {
+export interface AllCosmeticsRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -533,7 +533,7 @@ export interface NewCosmeticsResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface NewCosmeticsRequestParams {
+export interface NewCosmeticsRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -617,10 +617,10 @@ export interface BRCosmeticsListResponseData extends FortniteAPIResponseData {
     path: string;
     added: string;
     shopHistory: string[];
-  };
+  }[];
 }
 
-export interface BRCosmeticsListRequestParams {
+export interface BRCosmeticsListRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -655,10 +655,10 @@ export interface TrackCosmeticsListResponseData extends FortniteAPIResponseData 
     albumArt: string;
     added: string;
     shopHistory: string[];
-  };
+  }[];
 }
 
-export interface TrackCosmeticsListRequestParams {}
+export interface TrackCosmeticsListRequestParams extends FortniteAPIRequestParams {}
 
 /* -----------------------------------------------------
 Instrument Cosmetics List
@@ -695,10 +695,10 @@ export interface InstrumentCosmeticsListResponseData extends FortniteAPIResponse
     showcaseVideo: string;
     added: string;
     shopHistory: string[];
-  };
+  }[];
 }
 
-export interface InstrumentCosmeticsListRequestParams {
+export interface InstrumentCosmeticsListRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -741,10 +741,10 @@ export interface CarCosmeticsListResponseData extends FortniteAPIResponseData {
     showcaseVideo: string;
     added: string;
     shopHistory: string[];
-  };
+  }[];
 }
 
-export interface CarCosmeticsListRequestParams {
+export interface CarCosmeticsListRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -768,10 +768,10 @@ export interface LegoCosmeticsListResponseData extends FortniteAPIResponseData {
     };
     path: string;
     added: string;
-  };
+  }[];
 }
 
-export interface LegoCosmeticsListRequestParams {}
+export interface LegoCosmeticsListRequestParams extends FortniteAPIRequestParams {}
 
 /* -----------------------------------------------------
 Lego Kit Cosmetics List
@@ -802,10 +802,10 @@ export interface LegoKitCosmeticsListResponseData extends FortniteAPIResponseDat
     path: string;
     added: string;
     shopHistory: string[];
-  };
+  }[];
 }
 
-export interface LegoKitCosmeticsListRequestParams {
+export interface LegoKitCosmeticsListRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -830,10 +830,10 @@ export interface BeanCosmeticsListResponseData extends FortniteAPIResponseData {
     };
     path: string;
     added: string;
-  };
+  }[];
 }
 
-export interface BeanCosmeticsListRequestParams {
+export interface BeanCosmeticsListRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -920,7 +920,7 @@ export interface BRCosmeticByIDResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface BRCosmeticByIDRequestParams {
+export interface BRCosmeticByIDRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -1007,7 +1007,7 @@ export interface BRCosmeticSearchResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface BRCosmeticSearchRequestParams {
+export interface BRCosmeticSearchRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -1227,10 +1227,10 @@ export interface BRCosmeticsSearchResponseData extends FortniteAPIResponseData {
     path: string;
     added: string;
     shopHistory: string[];
-  };
+  }[];
 }
 
-export interface BRCosmeticsSearchRequestParams {
+export interface BRCosmeticsSearchRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -1450,10 +1450,10 @@ export interface BRCosmeticsSearchByIDsResponseData extends FortniteAPIResponseD
     path: string;
     added: string;
     shopHistory: string[];
-  };
+  }[];
 }
 
-export interface BRCosmeticsSearchByIDsRequestParams {
+export interface BRCosmeticsSearchByIDsRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -1482,7 +1482,7 @@ export interface CreatorCodeResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface CreatorCodeRequestParams {
+export interface CreatorCodeRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the creator code. Defaults to `none`
    */
@@ -1512,7 +1512,7 @@ export interface BRMapResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface BRMapRequestParams {
+export interface BRMapRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -1601,7 +1601,7 @@ export interface NewsResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface NewsRequestParams {
+export interface NewsRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -1640,7 +1640,7 @@ export interface BRNewsResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface BRNewsRequestParams {
+export interface BRNewsRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -1679,7 +1679,7 @@ export interface STWNewsResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface STWNewsRequestParams {
+export interface STWNewsRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -1718,7 +1718,7 @@ export interface CreativeNewsResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface CreativeNewsRequestParams {
+export interface CreativeNewsRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -1756,10 +1756,10 @@ export interface PlaylistsResponseData extends FortniteAPIResponseData {
     gameplayTags: string[];
     path: string;
     added: string;
-  };
+  }[];
 }
 
-export interface PlaylistsRequestParams {
+export interface PlaylistsRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -1800,7 +1800,7 @@ export interface PlaylistByIDResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface PlaylistByIDRequestParams {
+export interface PlaylistByIDRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -2076,7 +2076,7 @@ export interface ShopResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface ShopRequestParams {
+export interface ShopRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the output language. Defaults to `en`
    */
@@ -2552,7 +2552,7 @@ export interface BRStatsResponseData extends FortniteAPIResponseData {
   };
 }
 
-export interface BRStatsRequestParams {
+export interface BRStatsRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the account name. Defaults to `none`
    */
@@ -3040,7 +3040,7 @@ export interface BRStatsByAccountIDResponseData extends FortniteAPIResponseData 
   };
 }
 
-export interface BRStatsByAccountIDRequestParams {
+export interface BRStatsByAccountIDRequestParams extends FortniteAPIRequestParams {
   /**
    * Sets the time window. Defaults to `lifetime`
    */
