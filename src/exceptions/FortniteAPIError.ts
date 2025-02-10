@@ -6,11 +6,6 @@ import { FortniteAPIErrorData } from '../http/httpStructs';
  */
 class FortniteAPIError extends Error {
   /**
-   * The HTTP method
-   */
-  public method: string;
-
-  /**
    * The URL of the requested API endpoint
    */
   public url: string;
@@ -35,7 +30,6 @@ class FortniteAPIError extends Error {
     this.name = 'FortniteAPIError';
     this.message = error.error;
 
-    this.method = request.method!.toUpperCase();
     this.url = request.url!;
     this.httpStatus = status;
     this.requestParams = request.params;
