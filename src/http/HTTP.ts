@@ -43,7 +43,7 @@ class HTTP {
     };
 
     try {
-      const response = await this.axios(config);
+      const response = await instance(config);
 
       return response.data;
     } catch (e) {
