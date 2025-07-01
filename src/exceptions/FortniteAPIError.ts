@@ -30,6 +30,7 @@ class FortniteAPIError extends Error {
     this.name = 'FortniteAPIError';
     this.message = error.error;
 
+    this.method = request.method?.toUpperCase() ?? 'GET'
     this.url = request.url!;
     this.httpStatus = status;
     this.requestParams = request.params;
