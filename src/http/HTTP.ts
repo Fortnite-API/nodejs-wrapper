@@ -43,7 +43,7 @@ class HTTP {
     };
 
     try {
-      const response = await this.axios(config);
+      const response = await instance(config);
 
       return response.data;
     } catch (e) {
@@ -56,7 +56,7 @@ class HTTP {
           }
         }
 
-        throw new FortniteAPIError(e.response.data, config, e.response.status);
+        throw new FortniteAPIError(e.response.data, e.config ?? config, e.response.status);
       }
 
       throw e;
