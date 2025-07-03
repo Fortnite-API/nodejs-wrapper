@@ -6,6 +6,11 @@ import { FortniteAPIErrorData } from '../http/httpStructs';
  */
 class FortniteAPIError extends Error {
   /**
+   * The HTTP method
+   */
+  public method: string;
+  
+  /**
    * The URL of the requested API endpoint
    */
   public url: string;
