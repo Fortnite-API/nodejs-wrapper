@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars, no-shadow */
 import { FortniteAPIResponseData, FortniteAPIRequestParams } from './httpStructs';
 
-// Auto-generated at 2025-02-08T18:31:38.942Z
+// Auto-generated at 2026-04-17T17:38:11.004Z
 
 /* -----------------------------------------------------
 AES Keys
@@ -41,10 +41,34 @@ export interface BannersResponseData extends FortniteAPIResponseData {
     description: string;
     category: string;
     fullUsageRights: boolean;
+    rarity: {
+      value: string;
+      displayValue: string;
+      backendValue: string;
+    };
+    series: {
+      value: string;
+      image: string;
+      colors: string[];
+      backendValue: string;
+    };
+    set: {
+      value: string;
+      text: string;
+      backendValue: string;
+    };
+    introduction: {
+      chapter: string;
+      season: string;
+      text: string;
+      backendValue: number;
+    };
     images: {
       smallIcon: string;
       icon: string;
     };
+    gameplayTags: string[];
+    path: string;
   }[];
 }
 
@@ -1871,6 +1895,7 @@ export interface ShopResponseData extends FortniteAPIResponseData {
         color3: string;
         textBackgroundColor: string;
       };
+      tileBackgroundMaterial: string;
       tileSize: string;
       displayAssetPath: string;
       newDisplayAssetPath: string;
